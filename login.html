@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="login.css" />
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
     <title>Login</title>
   </head>
   <body>
@@ -31,7 +33,16 @@
               required
             />
           </div>
-          <button class="loginButton" type="submit">SIGN IN</button>
+          <div class="buttons-container">
+            <button class="button" id="button" type="submit">Sign In</button>
+            <button class="google-signin" id="googleSignIn">
+              <img
+                src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-suite-everything-you-need-know-about-google-newest-0.png"
+                alt="Google Sign-In"
+              />
+              <span>Sign in with Google</span>
+            </button>
+          </div>
         </form>
         <div class="signup">
           <p>Don't have an account? <a href="/signup.html">Sign up</a></p>
@@ -39,5 +50,5 @@
       </div>
     </div>
   </body>
-  <script src="login.js"></script>
+  <script src="login.js" type="module"></script>
 </html>

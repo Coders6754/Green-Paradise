@@ -17,7 +17,6 @@ body {
   width: 100%;
   height: 100%;
   background-color: #f5f5f5;
-  /* background-image: url(https://images.unsplash.com/photo-1494217752358-c6c4a1a82797?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80); */
 }
 
 .main {
@@ -44,7 +43,6 @@ body {
 
 .form {
   margin-top: 1.5rem;
-  margin-bottom: 1rem;
 }
 
 .label {
@@ -60,19 +58,63 @@ body {
   border: solid thin #ddd;
 }
 
-.loginButton {
+.button {
   background-color: #303131;
   color: #fff;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.75rem;
   border-radius: 0.25rem;
   border-width: 0px;
   cursor: pointer;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  font-size: 16px;
 }
-.signup {
+
+.login {
   margin-top: 1rem;
 }
 
-.signup a {
+.login a {
   color: #303131;
+}
+.google-signin {
+  display: inline-block;
+  white-space: nowrap;
+  text-align: center;
+  background-color: #303131;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.25rem;
+  border-width: 0px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+.google-signin span {
+  color: #fff;
+}
+
+.google-signin:hover {
+  cursor: pointer;
+}
+
+.google-signin img {
+  vertical-align: middle;
+  width: 10%;
+  margin-right: 10px;
+}
+
+.google-signin span {
+  font-size: 16px;
+  vertical-align: middle;
+}
+
+.buttons-container {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button,
+.google-signin {
+  flex: 1;
+  margin: 5px;
 }

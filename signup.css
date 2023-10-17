@@ -8,7 +8,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: #303131;
+  color: #3a3a3a;
   font-family: "Clash Display", sans-serif;
 }
 
@@ -43,13 +43,12 @@ body {
 
 .form {
   margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
 }
 
 .label {
   display: block;
   margin-bottom: 0.5rem;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .input {
@@ -67,6 +66,7 @@ body {
   border-width: 0px;
   cursor: pointer;
   margin-bottom: 1rem;
+  font-size: 16px;
 }
 
 .login {
@@ -75,4 +75,46 @@ body {
 
 .login a {
   color: #303131;
+}
+.google-signin {
+  display: inline-block;
+  white-space: nowrap;
+  text-align: center;
+  background-color: #303131;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.25rem;
+  border-width: 0px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+.google-signin span {
+  color: #fff;
+}
+
+.google-signin:hover {
+  cursor: pointer;
+}
+
+.google-signin img {
+  vertical-align: middle;
+  width: 10%;
+  margin-right: 10px;
+}
+
+.google-signin span {
+  font-size: 16px;
+  vertical-align: middle;
+}
+
+.buttons-container {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button,
+.google-signin {
+  flex: 1;
+  margin: 5px;
 }
