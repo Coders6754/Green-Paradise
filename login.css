@@ -1,0 +1,78 @@
+@font-face {
+  font-family: "Clash Display";
+  src: url(./assets/fonts/ClashDisplay-Variable.woff2) format("woff2"),
+    url(./assets/fonts/ClashDisplay-Variable.woff) format("woff");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #3a3a3a;
+  font-family: "Clash Display", sans-serif;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #f5f5f5;
+  /* background-image: url(https://images.unsplash.com/photo-1494217752358-c6c4a1a82797?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80); */
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  width: 50%;
+  margin: auto;
+  background-color: #fff;
+  padding: 4rem;
+  margin-top: 5rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.container h2 {
+  color: #486e00;
+}
+
+.form {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: solid thin #ddd;
+}
+
+.loginButton {
+  background-color: #303131;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  border-width: 0px;
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
+.signup {
+  margin-top: 1rem;
+}
+
+.signup a {
+  color: #303131;
+}
