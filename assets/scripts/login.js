@@ -1,7 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, FacebookAuthProvider } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js";
 import { ref, set, getDatabase } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js";
-// Initialize Firebase
 const firebaseConfig = {
     apiKey: "AIzaSyAiwRTYbPsBZukrBa_PCJrz9yVly6bAAVQ",
     authDomain: "plant-site-aac81.firebaseapp.com",

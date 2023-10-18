@@ -1,7 +1,7 @@
 @font-face {
   font-family: "Clash Display";
-  src: url(./assets/fonts/ClashDisplay-Variable.woff2) format("woff2"),
-    url(./assets/fonts/ClashDisplay-Variable.woff) format("woff");
+  src: url(/assets/fonts/ClashDisplay-Variable.woff2) format("woff2"),
+    url(/assets/fonts/ClashDisplay-Variable.woff) format("woff");
 }
 
 * {
@@ -48,7 +48,7 @@ body {
 .label {
   display: block;
   margin-bottom: 0.5rem;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .input {

@@ -12,8 +12,6 @@ const firebaseConfig = {
     appId: "1:1029613642800:web:4b431fb4e9adb5ce2439f5"
 };
 
-
-// Initialize Firebase
 const provider = new GoogleAuthProvider();
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
@@ -22,6 +20,7 @@ const auth = getAuth();
 // Manual Sign-Up
 document.getElementById('signupForm').addEventListener('submit', function (event) {
     event.preventDefault();
+    console.log('clicked');
     const firstName = document.getElementById('firstName').value;
     const lastName = document.getElementById('lastName').value;
     const email = document.getElementById('email').value;
