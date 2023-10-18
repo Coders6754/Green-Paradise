@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./Home.css" />
+  </head>
+  <body>
+    <!-- <iframe src="../Navbar/navbar.html"" frameborder="0" width="100%" height="70"></iframe> -->
+    <nav class="flex-Jsb-Ac">
+      <span class="logo">Green paradise</span>
+      <div class="flex-Jsb-Ac divWithLink">
+        <span>Catalog</span>
+        <span>Sale</span>
+        <span>Delivery and payment</span>
+        <span>Contact</span>
+      </div>
+      <input
+        type="text"
+        name="search"
+        class="search"
+        placeholder="Search Product...."
+      />
+      <div class="flex-Jsb-Ac">
+        <button class="round-btn" disabled>
+          <img src="../images/user.png" alt="user" />
+        </button>
+
+        <div class="dropdown">
+          <button class="dropdown-button">
+            <img src="../images/down-arrow.png" alt="" />
+          </button>
+          <div class="dropdown-content">
+            <div class="welcome-tagline">
+              <p>Welcome</p>
+              <span>To Greener Paradise!</span>
+            </div>
+            <button>Login/Sign Up</button>
+          </div>
+        </div>
+        <button class="round-btn">
+          <img src="../images/shopping-cart.png" alt="bag" />
+        </button>
+      </div>
+    </nav>
+    <div class="flx-jC-aC home-container">
+      <div class="flx-jC-aC content-container">
+        <div class="content">
+          <div class="Heading">
+            <p>Create</p>
+            <p>a green paradise</p>
+            <p>right at a home</p>
+          </div>
+          <div class="tagN">
+            <span>20% of the profit goes to help the Armed Forces of </span>
+            <span style="color: rgb(0, 98, 255)">Uk</span>
+            <span style="color: yellow">raine</span>
+          </div>
+          <button>Catalog</button>
+        </div>
+      </div>
+      <div class="slider-container">
+        <div class="circular-container">
+          <div class="circular-progress">
+            <span class="progress-value">25%</span>
+          </div>
+        </div>
+        <div class="card-slider">
+          <div class="card">
+            <img
+              src="https://1ashutoshverma.github.io/Green-Paradise/Images/home_page_images/firstcrousal1%20(1).jpg"
+              alt="Image 1"
+            />
+          </div>
+          <div class="card">
+            <img src="./HomeImages/hero2.jpg" alt="Image 2" />
+          </div>
+          <div class="card">
+            <img src="./HomeImages/hero3.jpg" alt="Image 3" />
+          </div>
+          <div class="card">
+            <img src="./HomeImages/hero3.jpg" alt="Image 3" />
+          </div>
+          <!-- Add more card elements as needed -->
+        </div>
+        <div class="controls">
+          <button class="control-btn" id="prevBtn"><</button>
+          <span id="pageCounter">1 / 4</span>
+          <button class="control-btn" id="nextBtn">></button>
+        </div>
+      </div>
+    </div>
+    <section class="flx-jC-aC section1">
+      <div class="flx-jC-aC grid">
+        <div class="halfWidth twin">
+          <img src="./HomeImages/grid1A.jpg" ></img>
+          <img src="./HomeImages/grid2A.jpg" class=""></img>
+
+        </div>
+        <div class="halfWidth single">
+          <img src="./HomeImages/gridB.jpg">
+        </div>
+      </div>
+      <div class="about-us">
+        <div class="heading">
+          <h2>About Us</h2>
+        </div>
+        <p>We are a store of indoor plants of various types in Kyiv. Hundreds of different tyoes of plant: from ficuses to ferns, we love and cherish our plants from their very "birt", so they will definitely bring happiness, joy, love and comfort to your home.</p>
+      </div>
+    </section>
+
+  </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      let currentSlide = 0;
+      const totalSlides = document.querySelectorAll(".card").length;
+      let increaseProgress = true;
+
+      // Initial display
+      showSlide(currentSlide, increaseProgress);
+      // Event listeners for next and previous buttons
+      document.getElementById("nextBtn").addEventListener("click", () => {
+        if (currentSlide < totalSlides - 1) {
+          currentSlide++;
+          increaseProgress = true;
+
+          showSlide(currentSlide, increaseProgress);
+        }
+      });
+
+      document.getElementById("prevBtn").addEventListener("click", () => {
+        if (currentSlide > 0) {
+          currentSlide--;
+          increaseProgress = false;
+
+          showSlide(currentSlide, increaseProgress);
+        }
+      });
+
+      // Function to show the current slide
+      function showSlide(slideIndex, increaseProgress) {
+        const slides = document.querySelectorAll(".card");
+        for (let i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        slides[slideIndex].style.display = "block";
+        updatePageCounter(slideIndex, increaseProgress);
+      }
+
+      // Function to update the page counter
+      function updatePageCounter(slideIndex, increaseProgress) {
+        const pageCounter = document.getElementById("pageCounter");
+        pageCounter.textContent = `${slideIndex + 1} / ${totalSlides}`;
+        console.log(slideIndex + 1);
+        if (slideIndex + 1 <= totalSlides) {
+          updateProgress(increaseProgress);
+        }
+      }
+    });
+    let circularProgress = document.querySelector(".circular-progress"),
+      progressValue = document.querySelector(".progress-value");
+    let progressStartValue = 0,
+      progressEndValue = 100,
+      speed = 100;
+    function updateProgress(increaseProgress) {
+      if (increaseProgress) {
+        progressStartValue = progressStartValue + 25;
+      } else {
+        progressStartValue = progressStartValue - 25;
+      }
+      progressValue.textContent = `${progressStartValue}%`;
+      circularProgress.style.background = `conic-gradient(#486e00 ${
+        progressStartValue * 3.6
+      }deg, #ededed 0deg)`;
+    }
+  </script>
+</html>

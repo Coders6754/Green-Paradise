@@ -1,0 +1,314 @@
+@font-face {
+  font-family: "Clash Display";
+  src: url(../assets/fonts/ClashDisplay-Variable.woff2) format("woff2"),
+    url(../assets/fonts/ClashDisplay-Variable.woff) format("woff");
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  font-family: "Clash Display", sans-serif;
+}
+button {
+  border: none;
+  border-radius: 10px;
+}
+
+.flx-jC-aC {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-container {
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.content-container {
+  width: 50%;
+  height: 100%;
+  /* margin: 0 auto; */
+}
+.content {
+  width: 79%;
+  margin: 0 auto;
+  height: fit-content;
+}
+.Heading {
+  line-height: 4.5em;
+}
+.Heading p {
+  color: #486e00;
+  font-size: 4em;
+  font-weight: bold;
+}
+.content button {
+  padding: 0.5em 1.5em;
+  font-size: 1.5em;
+  background-color: #486e00;
+  color: white;
+}
+
+.tagN {
+  font-size: 1.5em;
+  padding: 2em 0 1em 0;
+}
+.slider-container {
+  width: 50%;
+  height: 100%;
+  position: relative;
+}
+
+.card-slider {
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+  transition: transform 0.5s ease-in-out; /* Add a transition for smooth sliding */
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+}
+/* Additional styles for animation */
+.card-slider::before,
+.card-slider::after {
+  content: "";
+  flex: 0 0 auto;
+  width: 10px; /* Adjust the width as needed */
+}
+
+.card-slider::before {
+  background: linear-gradient(
+    to left,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 1)
+  );
+}
+
+.card-slider::after {
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0)
+  );
+}
+.controls {
+  position: absolute;
+  bottom: 1em;
+  left: 3em;
+}
+.control-btn {
+  background-color: #486e00;
+  color: white;
+  font-size: 24px;
+  width: 30px;
+  height: 33px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.control-btn:hover {
+  width: 33px;
+  height: 36px;
+  border: 3px dashed white;
+}
+
+.circular-container {
+  display: flex;
+  width: 90px;
+  padding: 50px 0;
+  border-radius: 8px;
+  background: none;
+  row-gap: 30px;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  left: 2em;
+}
+.circular-progress {
+  position: relative;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background: conic-gradient(#486e00 3.6deg, #ededed 0deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.circular-progress::before {
+  content: "";
+  position: absolute;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.progress-value {
+  position: relative;
+  font-size: 1.5em;
+  font-weight: 400;
+  color: #486e00;
+}
+.text {
+  font-size: 30px;
+  font-weight: 500;
+  color: #606060;
+}
+.section1 {
+  width: 100%;
+  height: 60%;
+  padding: 2em;
+}
+.halfWidth {
+  width: 50%;
+  display: block;
+  height: 100%;
+  /* padding: 2em; */
+}
+.grid {
+  width: 50%;
+  height: 100%;
+  /* padding: 1em; */
+}
+/* .grid twin {
+  width: 50%;
+} */
+
+.twin img {
+  width: 100%;
+  height: 50%;
+  display: block;
+  padding: 0.5em;
+  border-radius: 20px;
+}
+.single {
+  padding: 0.5em;
+}
+.single img {
+  width: 100%;
+  height: 100%;
+}
+.about-us {
+  width: 50%;
+  height: 100%;
+  padding: 5%;
+  line-height: 2em;
+  /* font-family: c; */
+}
+.heading {
+  margin: 1em 0;
+}
+.heading h2 {
+  font-size: 3em;
+  color: #486e00;
+}
+
+.about-us p {
+  font-size: 1.5em;
+}
+/*--------------------------------Temporary Nav-----------------------------------------------------*/
+nav {
+  padding: 0em 5em;
+  position: relative;
+  height: 10%;
+}
+button {
+  border: none;
+  background: transparent;
+}
+.flex-Jsb-Ac {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  color: #486e00;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+.divWithLink {
+  width: 29%;
+  color: #3a3a3a;
+}
+.search {
+  padding: 0.5em 1em;
+  border-radius: 15px;
+  border: 1px solid gray;
+}
+
+.round-btn {
+  padding: 0.9em;
+  border-radius: 50%;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.5em;
+  margin-left: -1em;
+}
+
+/* Style the button that will trigger the dropdown */
+.dropdown-button {
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Style the dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  right: 1px;
+  text-align: center;
+  padding: 1em;
+}
+
+/* Style the links inside the dropdown */
+
+.dropdown-content button {
+  padding: 10px 10px;
+  color: #486e00;
+  font-size: 1.2em;
+  font-weight: bold;
+  border: 2px solid #486e00;
+  margin: 0.4em auto;
+}
+.welcome-tagline {
+  text-align: left;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+  padding: 0.7em 0;
+}
+.dropdown-content p {
+  font-size: 1.3em;
+}
+/* Change color of links on hover */
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Show the dropdown content when hovering over the button */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/*-------------------------------------------------------------------------------------*/

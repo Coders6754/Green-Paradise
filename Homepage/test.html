@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <div class="slider-container">
+      <input type="range" id="slider" min="0" max="100" value="50" />
+      <div class="progress-bar">
+        <div class="progress"></div>
+      </div>
+    </div>
+
+    <script>
+      const slider = document.getElementById("slider");
+      const progress = document.querySelector(".progress");
+
+      slider.addEventListener("input", updateProgressBar);
+
+      function updateProgressBar() {
+        const value = slider.value;
+        const rotation = (value / 100) * 360;
+        progress.style.width = `${value}%`;
+        progress.style.transform = `rotate(${rotation}deg)`;
+      }
+    </script>
+  </body>
+
+  <style>
+    .slider-container {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin: 20px;
+    }
+
+    #slider {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+    }
+
+    .progress-bar {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-color: #ccc;
+    }
+
+    .progress {
+      width: 50%; /* Adjust this value dynamically with JavaScript to set the progress */
+      height: 100%;
+      border-radius: 50% 0 0 50%;
+      background-color: #007bff;
+      transform-origin: right center;
+      transform: rotate(0deg);
+      transition: width 0.3s ease;
+    }
+  </style>
+</html>
