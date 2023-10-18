@@ -56,7 +56,6 @@ document.getElementById('googleSignIn').addEventListener('click', function (e) {
             const fullName = user.displayName.split(' ');
             const firstName = fullName[0];
             const lastName = fullName[1] ? fullName[1] : '';
-            // ...
             set(ref(db, 'users/' + user.uid), {
                 firstName: firstName,
                 lastName: lastName,

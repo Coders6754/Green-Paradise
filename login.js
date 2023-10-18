@@ -24,6 +24,15 @@ document.getElementById('googleSignIn').addEventListener('click', function (e) {
             const credential = GoogleAuthProvider.credentialFromResult(result);
             const token = credential.accessToken;
             const user = result.user;
+            const fullName = user.displayName.split(' ');
+            const firstName = fullName[0];
+            const lastName = fullName[1] ? fullName[1] : '';
+            set(ref(db, 'users/' + user.uid), {
+                firstName: firstName,
+                lastName: lastName,
+                email: user.email,
+            });
+            localStorage.setItem('uid', user.uid);
             alert('Google Sign-In successful');
         }).catch((error) => {
             const errorCode = error.code;
@@ -42,6 +51,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
     signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;
+            localStorage.setItem('uid', user.uid);
             alert('Sign-In successful');
         })
         .catch((error) => {
