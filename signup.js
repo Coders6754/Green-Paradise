@@ -63,13 +63,9 @@ document.getElementById('googleSignIn').addEventListener('click', function (e) {
             });
             alert('Google Sign-In successful');
         }).catch((error) => {
-            // Handle Errors here.
             const errorCode = error.code;
             const errorMessage = error.message;
-            // The email of the user's account used.
             const email = error.email;
-            // The AuthCredential type that was used.
             const credential = GoogleAuthProvider.credentialFromError(error);
-            // ...
         });
 });
