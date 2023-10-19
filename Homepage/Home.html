@@ -57,7 +57,7 @@
             <span style="color: rgb(0, 98, 255)">Uk</span>
             <span style="color: yellow">raine</span>
           </div>
-          <button>Catalog</button>
+          <button class="catalog">Catalog</button>
         </div>
       </div>
       <div class="slider-container">
@@ -109,70 +109,156 @@
         <p>We are a store of indoor plants of various types in Kyiv. Hundreds of different tyoes of plant: from ficuses to ferns, we love and cherish our plants from their very "birt", so they will definitely bring happiness, joy, love and comfort to your home.</p>
       </div>
     </section>
+    <section class="section2">
+      <div>
+        <div class="flx-jC-aC section2Head">
+          <div class="heading">
+            <h2>Popular products </h2>
+          </div>
+            <div class="control2">
+              <button class="control-btn" id="prevPro"><</button>
+              <!-- <span id="pageCounter">1 / 4</span> -->
+              <button class="control-btn" id="nextPro">></button>
+          </div>
+         
+        </div>
+        <div class="card-list">
+          <div class="product-slider"></div>
+        </div>
+      </div>
+      
+   </section>
+   <section class="flx-jC-aC section1">
+    <div class="flx-jC-aC grid">
+     
+    </div>
+    <div class="about-us">
+      <div class="heading">
+        <h2>What our customer think</h2>
+      </div>
+<P>We have many customers testimonials from our new and regular customers
+  You can trust us, because we love our work and provide you with only honest reviews</P>    </div>
+  </section>
+  <section class="section3">
+      <div class="flx-jC-aC section3Head">
+        <div class="heading">
+          <h2>Categories </h2>
+        </div>
+          <button class="catalog">Catalog</button>
+       
+      </div>
+      <div class="categories-list">
+      <div class="cat-card">
+        <div class="cat-image-div">
+          <img class="cat-img"src="./HomeImages/catImg0.jpg">
+      </div>
+      <div class="cat-content">
+      <div class="cat-link flx-jC-aC" >
+        <p>Houseplant</p>
+        <img src="./HomeImages/arrow-right.png">
+      </div>
+      </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-image-div">
+          <img class="cat-img"src="./HomeImages/catImg1.jpg">
+      </div>
+      <div class="cat-content">
+      <div class="cat-link flx-jC-aC">
+        <p>Houseplant sets</p>
+        <img src="./HomeImages/arrow-right.png">
 
+      </div>
+      </div>
+      </div>
+      <div class="cat-card ">
+        <div class="cat-image-div">
+          <img class="cat-img"src="./HomeImages/catImg2.jpg">
+
+      </div>
+      <div class="cat-content">
+      <div class="cat-link flx-jC-aC">
+        <p>Flowerpots</p>
+        <img src="./HomeImages/arrow-right.png">
+
+      </div>
+      </div>
+      </div>
+      <div class="cat-card ">
+        <div class="cat-image-div">
+          <img class="cat-img"src="./HomeImages/catImg3.jpg">
+      </div>
+      <div class="cat-content">
+      <div class="cat-link flx-jC-aC">
+        <p>Soil and Fertilizers</p>
+        <img src="./HomeImages/arrow-right.png">
+
+      </div>
+      </div>
+      </div>
+      </div>
+    
+ </section>
+ <section class="flx-jC-aC section1">
+  <div class="flx-jC-aC grid">
+    <div class="halfWidth twin">
+      <img src="./HomeImages/paymentGrid1A.jpg" ></img>
+      <img src="./HomeImages/paymentGrid2A.jpg" class=""></img>
+
+    </div>
+    <div class="halfWidth single">
+      <img src="./HomeImages/paymentGrid2.jpg">
+    </div>
+  </div>
+  <div class="about-us">
+    <div class="heading">
+      <h2>Delivery and Payment</h2>
+    </div>
+<p>We package our plants securely yet sustainably by reusing boxes, paper (newspapers), etc. Delivery is carried out to all cities of Ukraine, except for the occupied ones. Pickup is possible in Kyiv.
+
+  We have full & partial prepayment by card and cash on delivery to make you feel completely secure.</p>
+  </div>
+</section>
+<section class="section3">
+  <div class="flx-jC-aC section3Head">
+    <div class="heading">
+      <h2>Find Us On Instagram </h2>
+    </div>
+      <button class="more">More Details</button>
+   
+  </div>
+  <div class="categories-list">
+  <div class="cat-card">
+    <div class="cat-image-div">
+      <img class="cat-img"src="./HomeImages/catImg0.jpg">
+  </div>
+ 
+  </div>
+  <div class="cat-card">
+    <div class="cat-image-div">
+      <img class="cat-img"src="./HomeImages/catImg1.jpg">
+  </div>
+ 
+  </div>
+  <div class="cat-card ">
+    <div class="cat-image-div">
+      <img class="cat-img"src="./HomeImages/catImg2.jpg">
+
+  </div>
+  
+  </div>
+  <div class="cat-card ">
+    <div class="cat-image-div">
+      <img class="cat-img"src="./HomeImages/catImg3.jpg">
+  </div>
+ 
+  </div>
+  </div>
+ 
+  </div>
+
+</section>
   </body>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      let currentSlide = 0;
-      const totalSlides = document.querySelectorAll(".card").length;
-      let increaseProgress = true;
-
-      // Initial display
-      showSlide(currentSlide, increaseProgress);
-      // Event listeners for next and previous buttons
-      document.getElementById("nextBtn").addEventListener("click", () => {
-        if (currentSlide < totalSlides - 1) {
-          currentSlide++;
-          increaseProgress = true;
-
-          showSlide(currentSlide, increaseProgress);
-        }
-      });
-
-      document.getElementById("prevBtn").addEventListener("click", () => {
-        if (currentSlide > 0) {
-          currentSlide--;
-          increaseProgress = false;
-
-          showSlide(currentSlide, increaseProgress);
-        }
-      });
-
-      // Function to show the current slide
-      function showSlide(slideIndex, increaseProgress) {
-        const slides = document.querySelectorAll(".card");
-        for (let i = 0; i < slides.length; i++) {
-          slides[i].style.display = "none";
-        }
-        slides[slideIndex].style.display = "block";
-        updatePageCounter(slideIndex, increaseProgress);
-      }
-
-      // Function to update the page counter
-      function updatePageCounter(slideIndex, increaseProgress) {
-        const pageCounter = document.getElementById("pageCounter");
-        pageCounter.textContent = `${slideIndex + 1} / ${totalSlides}`;
-        console.log(slideIndex + 1);
-        if (slideIndex + 1 <= totalSlides) {
-          updateProgress(increaseProgress);
-        }
-      }
-    });
-    let circularProgress = document.querySelector(".circular-progress"),
-      progressValue = document.querySelector(".progress-value");
-    let progressStartValue = 0,
-      progressEndValue = 100,
-      speed = 100;
-    function updateProgress(increaseProgress) {
-      if (increaseProgress) {
-        progressStartValue = progressStartValue + 25;
-      } else {
-        progressStartValue = progressStartValue - 25;
-      }
-      progressValue.textContent = `${progressStartValue}%`;
-      circularProgress.style.background = `conic-gradient(#486e00 ${
-        progressStartValue * 3.6
-      }deg, #ededed 0deg)`;
-    }
-  </script>
+  <script src="./Home.js"></script>
+ 
 </html>
