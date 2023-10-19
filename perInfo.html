@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Information Page</title>
+    
+
+    <link rel="stylesheet" href="./assets/styles/checkout.css" />
+    <style>
+      /* Add any additional custom styles here */
+      .step-heading {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: black;
+        /* Adjust the color of the headings */
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <div id="topLeft" class="step-heading">
+            <h3><i class="fas fa-arrow-right"></i> Information</h3>
+            <i class="fas fa-arrow-right-long"></i>
+            <h3 style="opacity: 0.4">
+              <i class="fas fa-arrow-right"></i> Delivery
+            </h3>
+            <i class="fas fa-arrow-right-long" style="opacity: 0.4"></i>
+            <h3 style="opacity: 0.4">
+              <i class="fas fa-arrow-right"></i> Payment Method
+            </h3>
+          </div>
+          <form>
+            <div class="mb-3">
+              <label for="fullName" class="form-label">Full Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="fullName"
+                placeholder="Enter your full name"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email Address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="Enter your email"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="mobile" class="form-label">Mobile Number</label>
+              <input
+                type="tel"
+                class="form-control"
+                id="mobile"
+                placeholder="Enter your mobile number"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary" id="submit">
+              Continue
+            </button>
+          </form>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <div class="card">
+            <div class="card-body">
+              <div>
+                <h2>Your Order</h2>
+                <p>Edit</p>
+              </div>
+              <p>You're getting free shipping!</p>
+              <p>You earn 320 points on this purchase!</p>
+              <hr />
+              <div id="productDetails">
+                <span id="cartCount" class="cart-count">0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./assets/scripts/perInfo.js"></script>
+  </body>
+</html>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    displayProducts();
+  });
+
+  function updateCartCount() {
+    var cartCountElement = document.getElementById("cartCount");
+    var cartData = JSON.parse(localStorage.getItem("cart-item")) || [];
+    var totalCount = cartData.length;
+
+    cartCountElement.textContent = totalCount;
+  }
+
+  function displayProducts() {
+    var productDetailsContainer = document.getElementById("productDetails");
+    var data = JSON.parse(localStorage.getItem("cart-item")) || [];
+
+    data.forEach(function (product) {
+      var productItem = document.createElement("div");
+      productItem.classList.add("product-item");
+
+      var productImage = document.createElement("div");
+      productImage.classList.add("product-image");
+      var img = document.createElement("img");
+      img.src = product.image; // Replace with the property name from your data
+      productImage.appendChild(img);
+
+      var productInfo = document.createElement("div");
+      var productName = document.createElement("p");
+      productName.textContent = product.name; // Replace with the property name from your data
+      var productPrice = document.createElement("p");
+      productPrice.textContent = "Price: " + product.price;
+      var removeButton = document.createElement("button");
+      removeButton.textContent = "Remove";
+      removeButton.addEventListener("click", function () {
+        removeProduct(product);
+      });
+
+      productInfo.appendChild(productName);
+      productInfo.appendChild(productPrice);
+      productInfo.appendChild(removeButton);
+
+      productItem.appendChild(productImage);
+      productItem.appendChild(productInfo);
+
+      productDetailsContainer.appendChild(productItem);
+    });
+    updateCartCount();
+  }
+
+  function removeProduct(product) {
+    var data = JSON.parse(localStorage.getItem("cart-item")) || [];
+    var newData = data.filter(function (item) {
+      return item.id !== product.id;
+    });
+    localStorage.setItem("cart-item", JSON.stringify(newData));
+    updateCartCount();
+    location.reload();
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    displayProducts();
+    updateCartCount();
+  });
+
+  // Function to save user data to local storage
+  function saveUserData() {
+    var userData = {
+      name: document.getElementById("fullName").value,
+      email: document.getElementById("email").value,
+      mobile: document.getElementById("mobile").value,
+    };
+
+    localStorage.setItem("UserInfo", JSON.stringify(userData));
+  }
+
+  // Event listener for the form submission
+  var submitButton = document.getElementById("submit");
+  submitButton.addEventListener("click", function (event) {
+    event.preventDefault();
+    saveUserData();
+    updateCartCount();
+    window.location.href = "delivery.html"; // Redirect to the next page
+  });
+</script>
