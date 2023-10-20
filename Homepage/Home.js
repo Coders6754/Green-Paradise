@@ -1,3 +1,23 @@
+// All necessary codes for Firebase
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js';
+import { getDatabase, ref, set, get } from 'https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAiwRTYbPsBZukrBa_PCJrz9yVly6bAAVQ",
+  authDomain: "plant-site-aac81.firebaseapp.com",
+  databaseURL: "https://plant-site-aac81-default-rtdb.asia-southeast1.firebasedatabase.app/",
+  projectId: "plant-site-aac81",
+  storageBucket: "plant-site-aac81.appspot.com",
+  messagingSenderId: "1029613642800",
+  appId: "1:1029613642800:web:4b431fb4e9adb5ce2439f5"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+localStorage.setItem('uid', "JIGe8tH5ceb6P5eXHNnRjE9vwKm2")
+
+//  <------------- Don't moidfy the above code ------------->
+
 document.addEventListener("DOMContentLoaded", function () {
   let currentSlide = 0;
   const totalSlides = document.querySelectorAll(".card").length;
@@ -6,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Initial display
   showSlide(currentSlide, increaseProgress);
   // Event listeners for next and previous buttons
-  const nextBtn=document.getElementById("nextBtn");
+  const nextBtn = document.getElementById("nextBtn");
   nextBtn.addEventListener("click", () => {
     if (currentSlide < totalSlides - 1) {
       currentSlide++;
@@ -14,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       showSlide(currentSlide, increaseProgress);
     }
-    
+
   });
 
   document.getElementById("prevBtn").addEventListener("click", () => {
@@ -58,163 +78,187 @@ function updateProgress(increaseProgress) {
     progressStartValue = progressStartValue - 25;
   }
   progressValue.textContent = `${progressStartValue}%`;
-  circularProgress.style.background = `conic-gradient(#486e00 ${
-    progressStartValue * 3.6
-  }deg, #ededed 0deg)`;
+  circularProgress.style.background = `conic-gradient(#486e00 ${progressStartValue * 3.6
+    }deg, #ededed 0deg)`;
 }
 ///////////////////////////////////////////////////////////////////////////////////////////
-const productSlider=document.querySelector(".product-slider");
+const productSlider = document.querySelector(".product-slider");
 
 async function fetchProducts() {
-    try {
-        const response = await fetch('https://new-plant-json-server.onrender.com/products');
-        const products = await response.json();
-      
-        displayProducts(products);
-    } catch (error) {
-        console.error('Error:', error);
-    }
+  try {
+    const response = await fetch('https://new-plant-json-server.onrender.com/products');
+    const products = await response.json();
+
+    displayProducts(products);
+  } catch (error) {
+    console.error('Error:', error);
+  }
 }
-let index=0;
+let index = 0;
 
 
 
 function displayProducts(products) {
-    // products.forEach((product) => {
-    // let card=createCard(product);
-    // productSlider.append(card);
-    // })
-    const nextBtn=document.getElementById("nextPro");
-    nextBtn.addEventListener("click", () => {
-        if(index<3) 
-        {index=index+3;
-        console.log(index);
-        productSlider.innerHTML="";
-    displayProducts(products,index);}
-    });
-    const prevBtn=document.getElementById("prevPro");
-    prevBtn.addEventListener("click", () => {
-        if(index>2) 
-        {index=index-3;
-        console.log(index);
-        productSlider.innerHTML="";
-    displayProducts(products,index);}
-    });
-    for(let i=index; i<index+3;i++){
-        let card=createCard(products[i]);
-    productSlider.append(card);
+  // products.forEach((product) => {
+  // let card=createCard(product);
+  // productSlider.append(card);
+  // })
+  const nextBtn = document.getElementById("nextPro");
+  nextBtn.addEventListener("click", () => {
+    if (index < 3) {
+      index = index + 3;
+      console.log(index);
+      productSlider.innerHTML = "";
+      displayProducts(products, index);
     }
-}
-function createCard(pro){
-    const card=document.createElement("div");
-    const cardImgDiv=document.createElement("div");
-    const cardImg=document.createElement("img");
-    cardImg.src=pro.productImage[0];
-    const cardContent=document.createElement("div");
-    const cardNameNPrice=document.createElement("div");
-    const cardName=document.createElement("p");
-    const cardPrice=document.createElement("p");
-    const addToCart=document.createElement("button");
-    const addToCartImage=document.createElement("img");
-    addToCartImage.src="../images/shopping-cart.png";
-    addToCart.append(addToCartImage);
-    cardName.textContent=pro.productName;
-    cardPrice.textContent=`${pro.price} UAH`;
-    cardNameNPrice.append(cardName,cardPrice);
-    
-    cardContent.append(cardNameNPrice,addToCart);
-    cardImgDiv.append(cardImg);
-    cardContent.classList.add("Productcard-content");
-    card.classList.add("Productcard");
-    cardImgDiv.classList.add("Productcard-img-div");
-    cardNameNPrice.classList.add("Productcard-name-price");
-    addToCart.classList.add("add-cart-button");
-    addToCart.addEventListener("click",()=>{
-      addingToCart(pro);
-    });
-
-    card.append(cardImgDiv,cardContent);
-return card;
-}
-function addingToCart(pro){
-  let cartArray=JSON.parse(localStorage.getItem("product-id"))||[];
-  cartArray.push(pro.id);
-  localStorage.setItem("product-id",JSON.stringify(cartArray));
-  console.log(cartArray);
-  const countDisplay=document.querySelector(".cart-counter");
-  countDisplay.textContent=cartArray.length;
-
+  });
+  const prevBtn = document.getElementById("prevPro");
+  prevBtn.addEventListener("click", () => {
+    if (index > 2) {
+      index = index - 3;
+      console.log(index);
+      productSlider.innerHTML = "";
+      displayProducts(products, index);
+    }
+  });
+  for (let i = index; i < index + 3; i++) {
+    let card = createCard(products[i]);
+    productSlider.append(card);
   }
+}
+function createCard(pro) {
+  const card = document.createElement("div");
+  const cardImgDiv = document.createElement("div");
+  const cardImg = document.createElement("img");
+  cardImg.src = pro.productImage[0];
+  const cardContent = document.createElement("div");
+  const cardNameNPrice = document.createElement("div");
+  const cardName = document.createElement("p");
+  const cardPrice = document.createElement("p");
+  const addToCart = document.createElement("button");
+  const addToCartImage = document.createElement("img");
+  addToCartImage.src = "../images/shopping-cart.png";
+  addToCart.append(addToCartImage);
+  cardName.textContent = pro.productName;
+  cardPrice.textContent = `${pro.price} UAH`;
+  cardNameNPrice.append(cardName, cardPrice);
+
+  cardContent.append(cardNameNPrice, addToCart);
+  cardImgDiv.append(cardImg);
+  cardContent.classList.add("Productcard-content");
+  card.classList.add("Productcard");
+  cardImgDiv.classList.add("Productcard-img-div");
+  cardNameNPrice.classList.add("Productcard-name-price");
+  addToCart.classList.add("add-cart-button");
+  addToCart.addEventListener("click", () => {
+    updateUserData(pro.id, 'cartItems');
+  });
+
+  card.append(cardImgDiv, cardContent);
+  return card;
+}
+
+// Function for adding data to the card.
+async function updateUserData(productId, arrayName) {
+  const uid = localStorage.getItem('uid');
+  if (uid) {
+    const userRef = ref(db, `users/${uid}`);
+    get(userRef).then((snapshot) => {
+      if (snapshot.exists()) {
+        let userData = snapshot.val();
+        if (userData[arrayName]) {
+          if (arrayName === 'cartItems') {
+            userData[arrayName].push({ productId: productId, quantity: 1 });
+          } else {
+            userData[arrayName].push(productId);
+          }
+        } else {
+          userData[arrayName] = arrayName === 'cartItems' ? [{ productId: productId, quantity: 1 }] : [productId];
+        }
+        set(userRef, userData).then(() => {
+          console.log("User data updated successfully.");
+        }).catch((error) => {
+          console.error("Error updating user data:", error);
+        });
+      } else {
+        console.log("No data available");
+      }
+    }).catch((error) => {
+      console.error(error);
+    });
+  }
+}
+
 
 fetchProducts();
 
 
 //////////////////////////////////SEARCH////////////////////////////////////////////////////
-const searchBar=document.querySelector(".search");
+const searchBar = document.querySelector(".search");
 const suggestion = document.querySelector(".suggestion-container");
-searchBar.addEventListener("click",()=>{
+searchBar.addEventListener("click", () => {
   suggestion.classList.toggle("show");
   searchBar.classList.toggle("increase-width-search");
   console.log("Suggestion")
 })
-document.querySelector(".home-container").addEventListener("click",()=>{
+document.querySelector(".home-container").addEventListener("click", () => {
   suggestion.classList.remove("show");
 
 })
-searchBar.addEventListener("input",throttle(
-  function(){
-    if(searchBar.value!==""){
+searchBar.addEventListener("input", throttle(
+  function () {
+    if (searchBar.value !== "") {
       fetchSuggestions(searchBar.value);
 
     }
-    else{
-      suggestion.innerHTML=""
+    else {
+      suggestion.innerHTML = ""
     }
-},500));
-   async function fetchSuggestions(query) {
-try{
-let results = await fetch(`https://new-plant-json-server.onrender.com/products?q=${query||""}`);
-let data = await results.json();
-if(data.length!==0){
-  appendSuggestions(data);
-}
+  }, 500));
+async function fetchSuggestions(query) {
+  try {
+    let results = await fetch(`https://new-plant-json-server.onrender.com/products?q=${query || ""}`);
+    let data = await results.json();
+    if (data.length !== 0) {
+      appendSuggestions(data);
+    }
 
-}
+  }
 
-catch(err){
-console.log(err); 
-const linkToProductPage=document.createElement("a");
+  catch (err) {
+    console.log(err);
+    const linkToProductPage = document.createElement("a");
 
-linkToProductPage.classList.add("search-result");
-linkToProductPage.textContent="No result";
-suggestion.append(linkToProductPage);
-
-}
-   }  
-
-function appendSuggestions(name){
-  suggestion.innerHTML="";
-  name.forEach(element => {
-    
-    const linkToProductPage=document.createElement("a");
     linkToProductPage.classList.add("search-result");
-    linkToProductPage.textContent=element.productName;
+    linkToProductPage.textContent = "No result";
+    suggestion.append(linkToProductPage);
+
+  }
+}
+
+function appendSuggestions(name) {
+  suggestion.innerHTML = "";
+  name.forEach(element => {
+
+    const linkToProductPage = document.createElement("a");
+    linkToProductPage.classList.add("search-result");
+    linkToProductPage.textContent = element.productName;
     suggestion.append(linkToProductPage);
     console.log(`proDUCT-${element.productName}`);
 
 
   });
 }
-function throttle(fn,delay){
-  let wait=false;
-  return function(...args){
-      if(!wait){
-          fn();
-          wait=true;
-          setTimeout(()=>{
-              wait=false;
-          },delay)
-      }
+function throttle(fn, delay) {
+  let wait = false;
+  return function (...args) {
+    if (!wait) {
+      fn();
+      wait = true;
+      setTimeout(() => {
+        wait = false;
+      }, delay)
+    }
   }
 }
 ///////////////////////////////////////////////////////////////////////////////////////////
