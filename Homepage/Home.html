@@ -10,18 +10,23 @@
     <!-- <iframe src="../Navbar/navbar.html"" frameborder="0" width="100%" height="70"></iframe> -->
     <nav class="flex-Jsb-Ac">
       <span class="logo">Green paradise</span>
-      <div class="flex-Jsb-Ac divWithLink">
+      <div class="flex-Jsb-Ac divWithLink"> 
         <span>Catalog</span>
         <span>Sale</span>
         <span>Delivery and payment</span>
         <span>Contact</span>
       </div>
-      <input
+      <div class="search-container">
+        <input
         type="text"
         name="search"
         class="search"
         placeholder="Search Product...."
       />
+      <div class="suggestion-container">
+      <p>Search for products...</p>
+      </div>
+      </div>
       <div class="flex-Jsb-Ac">
         <button class="round-btn" disabled>
           <img src="../images/user.png" alt="user" />
@@ -39,9 +44,12 @@
             <button>Login/Sign Up</button>
           </div>
         </div>
-        <button class="round-btn">
-          <img src="../images/shopping-cart.png" alt="bag" />
-        </button>
+
+       <div class="cartBtn-and-counter"> 
+         <button class="round-btn">
+        <img src="../images/shopping-cart.png" alt="bag" />
+      </button>
+    <div class="cart-counter">0</div>
       </div>
     </nav>
     <div class="flx-jC-aC home-container">
@@ -77,10 +85,10 @@
             <img src="./HomeImages/hero2.jpg" alt="Image 2" />
           </div>
           <div class="card">
-            <img src="./HomeImages/hero3.jpg" alt="Image 3" />
+            <img src="./HomeImages/catImg2.jpg" alt="Image 3" />
           </div>
           <div class="card">
-            <img src="./HomeImages/hero3.jpg" alt="Image 3" />
+            <img src="./HomeImages/catImg0.jpg" alt="Image 4" />
           </div>
           <!-- Add more card elements as needed -->
         </div>
@@ -129,9 +137,12 @@
       
    </section>
    <section class="flx-jC-aC section1">
-    <div class="flx-jC-aC grid">
-     
-    </div>
+    <div class="flx-jC-aC grid grid2">
+     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed voluptatibus fugiat atque dolorum excepturi, nulla molestiae unde incidunt quis amet, odio iusto, aperiam dolor maxime commodi sapiente obcaecati ullam quam?
+     Voluptates, accusamus inventore delectus dignissimos atque veniam, molestias laborum possimus doloremque eius officiis. Perferendis vitae obcaecati doloribus quibusdam ex fugiat minus, accusamus quidem maiores itaque cupiditate vero ut animi deleniti?
+     Facere rerum architecto quis quas? Eaque fugiat laborum, natus animi nesciunt nam vero iste ex laboriosam accusantium a vel ab illum illo consequuntur deleniti, debitis, sit mollitia! Quam, maiores eius!</p>
+   
+   </div>
     <div class="about-us">
       <div class="heading">
         <h2>What our customer think</h2>
@@ -257,6 +268,42 @@
  
   </div>
 
+</section>
+<section class="footer">
+  <div class="grid-container">
+    <div class="grid-item">
+      <h4 class="logo">Green Paradise</h4>
+      <img src="../footer/instagram.png" class="insta" />
+      <img src="../footer/send.png" class="message" />
+      <p>email:greenerparadise@gmail.com</p>
+    </div>
+    <div class="grid-item linksDiv">
+      <div>
+        <h4>Catalog</h4>
+        <p>Sale</p>
+        <p>Houseplants</p>
+        <p>Houseplants set</p>
+        <p>Flowerpots</p>
+        <p>Soil and Fertilizers</p>
+      </div>
+      <div>
+        <h4>Information</h4>
+        <p>Plant Care</p>
+        <p>Payment & Delivery</p>
+        <p>Privacy Policy</p>
+      </div>
+      <div>
+        <h4>About us</h4>
+        <p>Our Story</p>
+        <p>Our Parteners</p>
+        <p>Our Workprocess</p>
+        <p>Contacts</p>
+      </div>
+    </div>
+    <div class="grid-item">
+      <button class="topBtn">^</button>
+    </div>
+  </div>
 </section>
   </body>
   <script src="./Home.js"></script>

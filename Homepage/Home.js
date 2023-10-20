@@ -69,7 +69,6 @@ async function fetchProducts() {
     try {
         const response = await fetch('https://new-plant-json-server.onrender.com/products');
         const products = await response.json();
-      console.log(products);
       
         displayProducts(products);
     } catch (error) {
@@ -130,32 +129,92 @@ function createCard(pro){
     cardImgDiv.classList.add("Productcard-img-div");
     cardNameNPrice.classList.add("Productcard-name-price");
     addToCart.classList.add("add-cart-button");
+    addToCart.addEventListener("click",()=>{
+      addingToCart(pro);
+    });
+
     card.append(cardImgDiv,cardContent);
 return card;
 }
-// function createCategoryCard() {
-//    let cat0="Houseplants";
-//    let cat1="Houseplants sets";
-//    let cat2="Flowerpot";
-//    let cat3="Soil and fertilizer";
-//    const categoryList =document.querySelector("categories-list")
+function addingToCart(pro){
+  let cartArray=JSON.parse(localStorage.getItem("product-id"))||[];
+  cartArray.push(pro.id);
+  localStorage.setItem("product-id",JSON.stringify(cartArray));
+  console.log(cartArray);
+  const countDisplay=document.querySelector(".cart-counter");
+  countDisplay.textContent=cartArray.length;
 
-//    for(let i = 0; i <4;i++) { 
-//     const catcard=document.createElement("div");
-//     const catcardImgDiv=document.createElement("div");
-//     const catcardImg=document.createElement("img");
-//     catcardImg.src=`./HomeImages/catImg${i}.jpg`
-//     const catcardContent=document.createElement("div");
-//     catcardContent.textContent=`cat${i}`;
-//     catcardImgDiv.append(catcardImg);
-//     catcard.append(catcardImgDiv,catcardContent);
-//     catcardImgDiv.classList.add("cat-img-div");
-//     catcardContent.classList.add("cat-content");
-//     catcard.classList.add("cat-card");
-//     categoryList.append(catcard);
+  }
 
-//  }
-// console.log("heyyy")
-// }
-// createCategoryCard()
 fetchProducts();
+
+
+//////////////////////////////////SEARCH////////////////////////////////////////////////////
+const searchBar=document.querySelector(".search");
+const suggestion = document.querySelector(".suggestion-container");
+searchBar.addEventListener("click",()=>{
+  suggestion.classList.toggle("show");
+  searchBar.classList.toggle("increase-width-search");
+  console.log("Suggestion")
+})
+document.querySelector(".home-container").addEventListener("click",()=>{
+  suggestion.classList.remove("show");
+
+})
+searchBar.addEventListener("input",throttle(
+  function(){
+    if(searchBar.value!==""){
+      fetchSuggestions(searchBar.value);
+
+    }
+    else{
+      suggestion.innerHTML=""
+    }
+},500));
+   async function fetchSuggestions(query) {
+try{
+let results = await fetch(`https://new-plant-json-server.onrender.com/products?q=${query||""}`);
+let data = await results.json();
+if(data.length!==0){
+  appendSuggestions(data);
+}
+
+}
+
+catch(err){
+console.log(err); 
+const linkToProductPage=document.createElement("a");
+
+linkToProductPage.classList.add("search-result");
+linkToProductPage.textContent="No result";
+suggestion.append(linkToProductPage);
+
+}
+   }  
+
+function appendSuggestions(name){
+  suggestion.innerHTML="";
+  name.forEach(element => {
+    
+    const linkToProductPage=document.createElement("a");
+    linkToProductPage.classList.add("search-result");
+    linkToProductPage.textContent=element.productName;
+    suggestion.append(linkToProductPage);
+    console.log(`proDUCT-${element.productName}`);
+
+
+  });
+}
+function throttle(fn,delay){
+  let wait=false;
+  return function(...args){
+      if(!wait){
+          fn();
+          wait=true;
+          setTimeout(()=>{
+              wait=false;
+          },delay)
+      }
+  }
+}
+///////////////////////////////////////////////////////////////////////////////////////////
