@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Paradise</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="shortcut icon" href="images/favicons/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div id="body">
+        <div id="heading_appliedfilters_sort">
+            <div id="heading_container">
+                <h2 id="heading">Catalog</h2>
+                <img src="./images/catalog_underline.png" alt="" id="catalog_underline">
+            </div>
+            <div id="applied_filters_sort">
+                <p id="reset_filters">Reset Filters<svg width="16px" height="16px" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path d="M4 6H20M7 12H17M9 18H15" stroke="#000000" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                        </g>
+                    </svg></p>
+                <select id="sorting">
+                    <option value="">Sorting By</option>
+                    <option value="atoz">A - Z</option>
+                    <option value="ztoa">Z - A</option>
+                    <option value="lowtohigh">Price, Low to High</option>
+                    <option value="hightolow">Price, High to Low</option>
+                </select>
+            </div>
+        </div>
+        <div id="content">
+            <div id="filters">
+                <p><input type="checkbox" id="houseplant_set_filter">Houseplant Sets</p>
+                <p><input type="checkbox" id="houseplant_filter">Houseplants</p>
+                <p><input type="checkbox" id="flowerpot_filter">Flowerpot</p>
+                <p><input type="checkbox" id="soil_and_fertilizers_filter">Soil and Fertilizers</p>
+                <div id="price_range_filter_container">
+                    <p>0</p><input id="price_range_filter" type="range" name="" id="" min="0" step="500" value="2500"
+                        max="2500">
+                    <p>2500</p>
+                </div>
+            </div>
+            <div id="products">
+                <div id="filters_sort">
+                    <div id="filters_applied"></div>
+                    <div id="sort_by"></div>
+                </div>
+                <div id="products_container"></div>
+            </div>
+        </div>
+
+
+        <section class="section2">
+            <div>
+                <div class="flx-jC-aC section2Head">
+                    <div class="heading">
+                        <h2>Popular products </h2>
+                        <img src="./images/popular_products_underline.png" alt="" id="product_img">
+                    </div>
+                    <div class="control2">
+                        <button class="control-btn" id="prevPro">
+                            <</button>
+                                <!-- <span id="pageCounter">1 / 4</span> -->
+                                <button class="control-btn" id="nextPro">></button>
+                    </div>
+    
+                </div>
+                <div class="card-list">
+                    <div class="product-slider"></div>
+                </div>
+            </div>
+    
+        </section>
+    </div>
+    </div>
+</body>
+
+<script src="./index.js" type="module"></script>
+
+</html>
