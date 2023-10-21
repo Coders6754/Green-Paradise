@@ -317,12 +317,13 @@ footer * {
   }
   #filters {
     display: flex;
-    gap: 25px;
+    gap: 30px;
     align-items: center;
     justify-content: space-around;
     font-size: 12px;
     flex-wrap: wrap;
     flex-direction: row;
+    
   }
 }
 @media screen and (max-width: 400px) {
