@@ -7,6 +7,8 @@
     <title>Green Paradise</title>
     <link rel="stylesheet" href="index.css">
     <link rel="shortcut icon" href="images/favicons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 
 <body>
@@ -16,6 +18,7 @@
                 <h2 id="heading">Catalog</h2>
                 <img src="./images/catalog_underline.png" alt="" id="catalog_underline">
             </div>
+
             <div id="applied_filters_sort">
                 <p id="reset_filters">Reset Filters<svg width="16px" height="16px" viewBox="0 0 24 24" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
@@ -35,50 +38,57 @@
                 </select>
             </div>
         </div>
+
         <div id="content">
             <div id="filters">
-                <p><input type="checkbox" id="houseplant_set_filter">Houseplant Sets</p>
-                <p><input type="checkbox" id="houseplant_filter">Houseplants</p>
-                <p><input type="checkbox" id="flowerpot_filter">Flowerpot</p>
-                <p><input type="checkbox" id="soil_and_fertilizers_filter">Soil and Fertilizers</p>
+                <p><input type="checkbox" id="houseplant_set_filter"> Houseplants</p>
+                <p><input type="checkbox" id="houseplant_filter"> Houseplant sets</p>
+                <p><input type="checkbox" id="flowerpot_filter"> Flowerpot</p>
+                <p><input type="checkbox" id="soil_and_fertilizers_filter"> Soil and fertilizers</p>
+
                 <div id="price_range_filter_container">
-                    <p>0</p><input id="price_range_filter" type="range" name="" id="" min="0" step="500" value="2500"
-                        max="2500">
-                    <p>2500</p>
+                    <p>0</p><input id="price_range_filter" type="range" name="Price" id="" min="0" step="500"
+                        value="2500" max="2500">
+                    <p>5000</p>
                 </div>
-            </div>
-            <div id="products">
-                <div id="filters_sort">
-                    <div id="filters_applied"></div>
-                    <div id="sort_by"></div>
-                </div>
-                <div id="products_container"></div>
             </div>
         </div>
 
 
-        <section class="section2">
-            <div>
-                <div class="flx-jC-aC section2Head">
-                    <div class="heading">
-                        <h2>Popular products </h2>
-                        <img src="./images/popular_products_underline.png" alt="" id="product_img">
+
+        <section class="sec_img">
+            <div class="product_catalog">
+                <div class="product_card">
+                    <div class="productcard_container">
+                        <div class="fav_icon" data-tooltip="add to wishlist"><span class="material-symbols-outlined">favorite</span></div>
+                        <div class="pimg">
+                            <img src="images/AtlantisPlanter-PastelBlue.webp" alt="Pot" />
+                        </div>
+                    </div> 
+
+                    <div class="product_des">
+                        <div class="product_name">Peace Lily Plant</div>
+                        <div class="product_price">35</div>
                     </div>
-                    <div class="control2">
-                        <button class="control-btn" id="prevPro">
-                            <</button>
-                                <!-- <span id="pageCounter">1 / 4</span> -->
-                                <button class="control-btn" id="nextPro">></button>
-                    </div>
-    
-                </div>
-                <div class="card-list">
-                    <div class="product-slider"></div>
                 </div>
             </div>
-    
         </section>
-    </div>
+        
+
+
+        <div class="zm PHead">
+            <div class="heading">
+                <h2>Popular products </h2>
+                <img src="./images/popular_products_underline.png" alt="" id="product_img">
+            </div>
+
+            <div class="slidebtn">
+                <button class="arrw" id="prevPro">
+                    < </button> <button class="arrw" id="nextPro">></button>
+            </div>
+        </div>
+
+        
     </div>
 </body>
 
