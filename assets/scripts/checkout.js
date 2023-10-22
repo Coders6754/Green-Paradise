@@ -1,5 +1,5 @@
-import footer from "#";
-import nav from "#";
+import footer from "../components/footer.js";
+import nav from "../components/nav.js";
 
 document.querySelector("footer").innerHTML = footer();
 document.querySelector("nav").innerHTML = nav();
@@ -10,14 +10,15 @@ let cartList = JSON.parse(localStorage.getItem("cart-list")) || [];
 let cartCount = JSON.parse(localStorage.getItem("cart-count")) || 0;
 
 let options = {
-  key: "#",//put here rozarpay key
+  key: "rzp_test_M654vKdrqhRFgq",
   amount: (100+ +localStorage.getItem("total-amount")) * 100,
   name: userInfo.firstName,
   currency: "INR",
   description: "Acme Corp",
+  // add here rozarpay image
   image: "#",
   prefill: {
-    //put you mail whatever you get in 
+    
   },
   handler: function (response) {
     localStorage.removeItem("cart-list");
