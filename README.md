@@ -64,13 +64,13 @@ https://www.google.com/
 ## Screenshots
 
 **Login Page**
-![Login Page](/images/readme_Images/Login_Page.png)
+![Login Page](https://github.com/Coders6754/devilish-drop-2377/blob/main/Images/readme_Images/Login_Page.png)
 
 **Sign Up Page**
-![Sign Up Page](/images/readme_Images/Sign_up_page.png)
+![Sign Up Page](https://github.com/Coders6754/devilish-drop-2377/blob/main/Images/readme_Images/Sign_up_page.png)
 
 **Cart Page**
-![Cart Page](/images/readme_Images/Cart_page.png)
+![Cart Page](https://github.com/Coders6754/devilish-drop-2377/blob/main/Images/readme_Images/Cart_page.png)
 
 # Contributors
 
