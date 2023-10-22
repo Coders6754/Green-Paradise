@@ -18,6 +18,12 @@ const db = getDatabase(app);
 
 const uid = localStorage.getItem('uid');
 
+let totalAmount = 0;
+let discountedAmount = 0;
+let subtotalAmount = 0;
+const totalPriceElement = document.querySelector('#totalCartPrice');
+const discountedAmountElement = document.querySelector('#discountPrice');
+
 async function fetchUserDataAndProducts() {
     try {
         const userRef = ref(db, 'users/' + uid);
@@ -40,9 +46,11 @@ async function fetchUserDataAndProducts() {
             );
             //map
             const cartData = productsInCart.map(product => {
-                const quantity = cartItems.find(cartItem => cartItem.productId === product.id).quantity;
+                const cartItem = cartItems.find(item => item.productId === product.id);
+                const quantity = cartItem ? Number(cartItem.quantity) : 0;
                 return { ...product, quantity };
             });
+
             if (cartData.length == 0) {
                 let emptyCart = document.querySelector('#emptyCart')
                 let productLabels = document.querySelector("#productLabels")
@@ -51,6 +59,7 @@ async function fetchUserDataAndProducts() {
                 emptyCart.className = "emptyCart"
                 productLabels.className = "productLabelsHidden"
             } else {
+                calculateAmount(cartData)
                 renderProduct(cartData);
             }
             updatedItemCount(cartData, productsInWishlist)
@@ -225,7 +234,7 @@ function renderProduct(data) {
         priceWrapperDiv.className = 'priceWrapper';
 
         let productPrice = document.createElement('p');
-        productPrice.textContent = `$${product.price}`
+        productPrice.textContent = `$${product.price * product.quantity}`
         priceWrapperDiv.append(productPrice);
 
         let quantityControlDiv = document.createElement('div');
@@ -234,15 +243,24 @@ function renderProduct(data) {
         let decreaseButton = document.createElement('button');
         decreaseButton.textContent = '-';
         quantityControlDiv.appendChild(decreaseButton);
+        decreaseButton.addEventListener('click', () => {
+            if (product.quantity > 1) {
+                decrementQuantity(product.id)
+            } else {
+                decreaseButton.disabled = true
+            }
 
+        })
         let quantitySpan = document.createElement('span');
-        quantitySpan.textContent = '1';
+        quantitySpan.textContent = `${product.quantity}`;
         quantityControlDiv.appendChild(quantitySpan);
 
         let increaseButton = document.createElement('button');
         increaseButton.textContent = '+';
         quantityControlDiv.appendChild(increaseButton);
-
+        increaseButton.addEventListener('click', () => {
+            incrementQuantity(product.id)
+        })
         priceAndControlsDiv.append(priceWrapperDiv, quantityControlDiv);
 
         productDiv.append(productImageAndDetailsDiv, priceAndControlsDiv);
@@ -329,6 +347,77 @@ function renderEmptyWishlist() {
 }
 
 
+
+
+// Quantity control and Pricing management
+async function incrementQuantity(productId) {
+    if (uid) {
+        const userRef = ref(db, `users/${uid}`);
+        get(userRef).then((snapshot) => {
+            if (snapshot.exists()) {
+                let userData = snapshot.val();
+                if (userData.cartItems) {
+                    let product = userData.cartItems.find(item => item.productId === productId);
+                    if (product) {
+                        product.quantity += 1;
+                    }
+                    set(userRef, userData).then(() => {
+                        fetchUserDataAndProducts()
+                    }).catch((error) => {
+                        console.error("Error updating user data:", error);
+                    });
+                } else {
+                    console.log("No items in cart.");
+                }
+            } else {
+                console.log("No data available");
+            }
+        }).catch((error) => {
+            console.error(error);
+        });
+    }
+}
+
+async function decrementQuantity(productId) {
+    if (uid) {
+        const userRef = ref(db, `users/${uid}`);
+        get(userRef).then((snapshot) => {
+            if (snapshot.exists()) {
+                let userData = snapshot.val();
+                if (userData.cartItems) {
+                    let product = userData.cartItems.find(item => item.productId === productId);
+                    if (product && product.quantity > 1) {
+                        product.quantity -= 1;
+                    }
+                    set(userRef, userData).then(() => {
+                        fetchUserDataAndProducts()
+                    }).catch((error) => {
+                        console.error("Error updating user data:", error);
+                    });
+                } else {
+                    console.log("No items in cart.");
+                }
+            } else {
+                console.log("No data available");
+            }
+        }).catch((error) => {
+            console.error(error);
+        });
+    }
+}
+
+function calculateAmount(data) {
+    let sub = 0;
+    data.forEach((product) => {
+        sub += (product.price * product.quantity);
+    })
+    let cartSummerySubtotal = document.querySelector('#cartSummerySubtotal')
+    subtotalAmount = sub
+    cartSummerySubtotal.innerHTML = `$${subtotalAmount.toFixed(2)}`
+    totalPriceElement.innerHTML = `$${subtotalAmount.toFixed(2)}`
+}
+
+
 // Coupon Management
 function showCoupon() {
     let appliedCouponManagement = document.querySelector("#appliedCouponManagement")
@@ -342,6 +431,10 @@ function showCoupon() {
     let i = document.createElement('i');
     i.className = 'fa-solid fa-square-xmark';
     i.style.color = '#fff';
+    i.addEventListener('click', () => {
+        removeDiscount()
+        appliedCouponManagement.innerHTML = ""
+    })
     div.appendChild(i);
 
     appliedCouponManagement.append(div);
@@ -353,6 +446,36 @@ function showAlert(message) {
     alert.id = "couponAlertText"
     alert.innerHTML = message
     couponAlerts.append(alert)
+
+    setTimeout(function () {
+        alert.remove();
+    }, 3000);
 }
+
 // showAlert("Test")
 // showCoupon()
+// Get elements
+const couponInput = document.querySelector('#coupon_input');
+const applyButton = document.querySelector('#coupon_apply_button');
+
+
+// Apply discount
+applyButton.addEventListener('click', () => {
+    if (couponInput.value.toUpperCase() === 'HAPPY10') {
+        const discount = subtotalAmount * 0.1;
+        discountedAmount = subtotalAmount - discount;
+
+        totalPriceElement.textContent = `$${discountedAmount.toFixed(2)}`;
+        discountedAmountElement.textContent = `$${discount.toFixed(2)}`;
+        showCoupon();
+        couponInput.value = '';
+    } else {
+        showAlert('Invalid coupon code. Please try again.')
+    }
+});
+
+function removeDiscount() {
+    discountedAmount = subtotalAmount;
+    totalPriceElement.textContent = `$${discountedAmount.toFixed(2)}`;
+    discountedAmountElement.textContent = `$0.00`;
+}
