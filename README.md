@@ -66,9 +66,9 @@ https://www.google.com/
 ## Screenshots
 
 **Login Page**
-![Login Page](/images/Readme%20Images/Login%20Page.png)
-![Sign Up Page](/images/Readme%20Images/Sign%20up%20page.png)
-![Cart Page](/images/Readme%20Images/Cart_page.png)
+![Login Page](/images/readme_Images/Login_Page.png)
+![Sign Up Page](/images/readme_Images/Sign_up_page.png)
+![Cart Page](/images/readme_Images/Cart_page.png)
 
 # Contributors
 
