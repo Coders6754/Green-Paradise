@@ -1,16 +1,14 @@
-# devilish-drop-2377
-
 # Green Paradise
 
 ## Table of Contents
 
-1. Introduction
-2. Deployed Link
-3. Tech Stack
-4. Tech Stack Detailed Explanation
-5. Features
-6. Screenshots
-7. Contributors
+1. [Introduction](#introduction)
+2. [Deployed Link](#deployed-link)
+3. [Tech Stack](#tech-stack)
+4. [Tech Stack Detailed Explanation](#tech-stack-detailed-explanation)
+5. [Features](#features)
+6. [Screenshots](#screenshots)
+7. [Contributors](#contributors)
 
 ## Introduction
 
