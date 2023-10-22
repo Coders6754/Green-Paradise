@@ -67,26 +67,26 @@ https://www.google.com/
 
 **Login Page**
 ![Login Page](/images/Readme%20Images/Login%20Page.png)
-![Sign Up Page](/images/Readme%20Images/Sign%20Up%20Page.png)
-![Cart Page](images/Readme%20Images/Cart_page.png)
+![Sign Up Page](/images/Readme%20Images/Sign%20up%20page.png)
+![Cart Page](/images/Readme%20Images/Cart_page.png)
 
 # Contributors
 
-1. [Narayan Das](https://github.com/noobnarayan)
+1. **Narayan Das**
 
-   - GitHub: [noobnarayan](https://github.com/noobnarayan)
+   - GitHub: [@noobnarayan](https://github.com/noobnarayan)
    - LinkedIn: [noobnarayan](https://www.linkedin.com/in/noobnarayan)
    - Portfolio: [noobnarayan.in](https://noobnarayan.in/)
 
-2. [Anjali Sinha](https://github.com/Coders6754)
+2. **Anjali Sinha**
 
-   - GitHub: [Coders6754](https://github.com/Coders6754)
+   - GitHub: [@Coders6754](https://github.com/Coders6754)
    - LinkedIn: [Anjali Sinha](https://www.linkedin.com/in/anjali-sinha-60528b22b/)
 
-3. [Rishita Mukherjee](https://github.com/RiiXXD)
+3. **Rishita Mukherjee**
 
-   - GitHub: [RiiXXD](https://github.com/RiiXXD)
+   - GitHub: [@RiiXXD](https://github.com/RiiXXD)
 
-4. [Suraj Kumar Yadav](https://github.com/SurajYadav007)
-   - GitHub: [SurajYadav007](https://github.com/SurajYadav007)
+4. **Suraj Kumar Yadav**
+   - GitHub: [@SurajYadav007](https://github.com/SurajYadav007)
    - LinkedIn: [Suraj Yadav](https://www.linkedin.com/in/suraj-yadav-387bb7253/)
