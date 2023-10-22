@@ -65,7 +65,11 @@ https://www.google.com/
 
 **Login Page**
 ![Login Page](/images/readme_Images/Login_Page.png)
+
+**Sign Up Page**
 ![Sign Up Page](/images/readme_Images/Sign_up_page.png)
+
+**Cart Page**
 ![Cart Page](/images/readme_Images/Cart_page.png)
 
 # Contributors
@@ -73,7 +77,7 @@ https://www.google.com/
 1. **Narayan Das**
 
    - GitHub: [@noobnarayan](https://github.com/noobnarayan)
-   - LinkedIn: [noobnarayan](https://www.linkedin.com/in/noobnarayan)
+   - LinkedIn: [@noobnarayan](https://www.linkedin.com/in/noobnarayan)
    - Portfolio: [noobnarayan.in](https://noobnarayan.in/)
 
 2. **Anjali Sinha**
