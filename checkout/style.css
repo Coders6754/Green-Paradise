@@ -240,3 +240,39 @@ body {
 .successMessage p:nth-child(1) {
   font-weight: 500;
 }
+
+/* Responsive code */
+@media screen and (max-width: 912px) {
+  .main {
+    flex-direction: column;
+    padding: 3em;
+  }
+  .right {
+    width: 100%;
+  }
+  .left {
+    width: 100%;
+  }
+  .productsList {
+    gap: 1em;
+  }
+}
+@media screen and (max-width: 650px) {
+  .formContainer div {
+    width: 100%;
+    flex-direction: column;
+    gap: 1em;
+  }
+  .formContainer input {
+    width: 100%;
+  }
+  .formContainer select {
+    width: 100%;
+  }
+  .buttonWarapperSuccess {
+    gap: 0.5em;
+  }
+  .deliverypageButtonWrapper {
+    gap: 0.5em;
+  }
+}
