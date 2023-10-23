@@ -1,8 +1,12 @@
 @font-face {
-    font-family: "Clash Display";
-    src: url(./assets/fonts/ClashDisplay-Variable.woff2) format("woff2"),
-      url(./assets/fonts/ClashDisplay-Variable.woff) format("woff");
-  }
+    font-family: "ClashDisplay SemiBold";
+    src: url("./fonts/ClashDisplay-Semibold.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "ClashDisplay Regular";
+    src: url("./fonts/ClashDisplay-Regular.otf") format("opentype");
+}
 
 body{
     font-family: "ClashDisplay Regular",sans-serif;
@@ -67,12 +71,14 @@ color: #486e00;
 }
 #button_heart{
     display: flex;
-    gap: 20px;
+    gap: 10px;
     align-items: center;  
 }
-footer * {
-    font-family: "ClashDisplay Regular", sans-serif;
+#care_text{
+    margin-bottom: 30px;
 }
+
+
 @media screen and (max-width:1000px) {
     #content {
         max-width: 85%;

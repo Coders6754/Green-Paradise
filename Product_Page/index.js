@@ -27,6 +27,7 @@ async function fetchProductsForSecImg() {
         // Get the sorting dropdown element
         const selectElementForSecImg = document.getElementById('sorting');
         const selectedOption = selectElementForSecImg.value;
+        
 
         // Sort the products based on the selected option
         products.sort((a, b) => {
@@ -99,6 +100,13 @@ function createProductCard(product) {
 
     return productCard;
 }
+
+
+
+
+
+
+
 
 // Call the fetchProductsForSecImg function to load products for the "sec_img" section
 fetchProductsForSecImg();
@@ -177,13 +185,18 @@ function createCard(pro) {
   cardImgDiv.classList.add("Productcard-img-div");
   cardNameNPrice.classList.add("Productcard-name-price");
   addToCart.classList.add("add-cart-button");
+
+
+
   addToCart.addEventListener("click", () => {
     updateUserData(pro.id, 'cartItems');
   });
 
   card.append(cardImgDiv, cardContent);
   return card;
+
 }
+
 
 
 fetchProducts();
@@ -214,4 +227,5 @@ function throttle(fn, delay) {
     }
   }
 }
+
 
