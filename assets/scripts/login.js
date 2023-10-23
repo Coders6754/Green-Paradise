@@ -32,7 +32,7 @@ document.getElementById('googleSignIn').addEventListener('click', function (e) {
                 email: user.email,
             });
             localStorage.setItem('uid', user.uid);
-            alert('Google Sign-In successful');
+            window.location.href = "../index.html"
         }).catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
@@ -51,7 +51,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
         .then((userCredential) => {
             const user = userCredential.user;
             localStorage.setItem('uid', user.uid);
-            alert('Sign-In successful');
+            window.location.href = "../index.html"
         })
         .catch((error) => {
             const errorCode = error.code;

@@ -36,7 +36,7 @@ document.getElementById('signupForm').addEventListener('submit', function (event
             });
         })
         .then(() => {
-            alert('User created and data saved in Realtime Database');
+            window.location.href = "login.html"
         })
         .catch((error) => {
             const errorCode = error.code;
@@ -60,7 +60,7 @@ document.getElementById('googleSignIn').addEventListener('click', function (e) {
                 lastName: lastName,
                 email: user.email,
             });
-            alert('Google Sign-In successful');
+            window.location.href = "login.html"
         }).catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;

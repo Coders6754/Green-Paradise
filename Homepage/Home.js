@@ -15,9 +15,39 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
-localStorage.setItem('uid', "JIGe8tH5ceb6P5eXHNnRjE9vwKm2")
+const uid = localStorage.getItem('uid');
 
 //  <------------- Don't moidfy the above code ------------->
+
+const loginBtn = document.querySelector('.login-btn');
+if (localStorage.getItem('uid')) {
+
+  async function fetchUserDataAndProducts() {
+    try {
+      const userRef = ref(db, 'users/' + uid);
+
+      const snapshot = await get(userRef);
+
+      if (snapshot.exists()) {
+        const userData = snapshot.val();
+        loginBtn.textContent = `${userData.firstName}`;
+        loginBtn.Disabled = true;
+      } else {
+        console.log("No data available");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  fetchUserDataAndProducts()
+
+}
+loginBtn.addEventListener('click', () => {
+  window.location.href = "../test.html";
+
+})
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
   let currentSlide = 0;
@@ -151,21 +181,21 @@ function createCard(pro) {
   cardImgDiv.classList.add("Productcard-img-div");
   cardNameNPrice.classList.add("Productcard-name-price");
   addToCart.classList.add("add-cart-button");
-  const cardCounter=document.querySelector(".cart-counter");
+  const cardCounter = document.querySelector(".cart-counter");
 
-  let prev=JSON.parse(localStorage.getItem("cartItems"))||0;
-  cardCounter.textContent =prev;
+  let prev = JSON.parse(localStorage.getItem("cartItems")) || 0;
+  cardCounter.textContent = prev;
 
   addToCart.addEventListener("click", () => {
     // if(localStorage.getItem(uid)){
     //   addProductcard()
     // }
-    let prev=JSON.parse(localStorage.getItem("cartItems"))||0;
-     prev=prev+1;
+    let prev = JSON.parse(localStorage.getItem("cartItems")) || 0;
+    prev = prev + 1;
     updateUserData(pro.id, 'cartItems');
-    const cardCounter=document.querySelector(".cart-counter");
-    cardCounter.textContent =prev;
-localStorage.setItem('cartItems', JSON.stringify(prev));
+    const cardCounter = document.querySelector(".cart-counter");
+    cardCounter.textContent = prev;
+    localStorage.setItem('cartItems', JSON.stringify(prev));
   });
 
   card.append(cardImgDiv, cardContent);
@@ -174,7 +204,6 @@ localStorage.setItem('cartItems', JSON.stringify(prev));
 
 // Function for adding data to the card.
 async function updateUserData(productId, arrayName) {
-  const uid = localStorage.getItem('uid');
   if (uid) {
     const userRef = ref(db, `users/${uid}`);
     get(userRef).then((snapshot) => {
@@ -257,9 +286,9 @@ function appendSuggestions(name) {
     const linkToProductPage = document.createElement("a");
     linkToProductPage.classList.add("search-result");
     linkToProductPage.textContent = element.productName;
-    linkToProductPage.addEventListener("click", () =>{
-      window.location.href="../test.html"   //replace with specific product page link
-      localStorage.setItem('productSearched',element.productName)
+    linkToProductPage.addEventListener("click", () => {
+      // window.location.href ="./Product_Page/Product_Detail_Page.html"   //replace with specific product page link
+      localStorage.setItem('productSearched', element.productName)
     })
     suggestion.append(linkToProductPage);
     console.log(`proDUCT-${element.productName}`);
@@ -281,12 +310,5 @@ function throttle(fn, delay) {
 }
 ////////////////////////////////NAV/////Links///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const loginBtn=document.querySelector('.login-btn');
-if(localStorage.getItem('uid')){
-  loginBtn.textContent="Rishita";
-  loginBtn.Disabled=true;
-}
-loginBtn.addEventListener('click',()=>{
-  window.location.href = "../test.html";
-  
-})
+
+
