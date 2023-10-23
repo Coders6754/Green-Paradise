@@ -17,6 +17,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
+let salePrice = 0
 
 const uid = localStorage.getItem('uid');
 async function fetchUserDataAndProducts() {
@@ -170,10 +171,52 @@ try {
 
 
 function updatePrice(finalAmount) {
-    let salePrice = finalAmount * 0.18;
+    finalAmount = Number(finalAmount);
+    let price = finalAmount * 0.18;
 
     document.querySelector('.delivery span:nth-child(2)').textContent = `$10`
-    document.querySelector('.sale span:nth-child(2)').textContent = '$' + salePrice.toFixed(2);
+    document.querySelector('.sale span:nth-child(2)').textContent = '$' + price.toFixed(2);
 
-    document.querySelector('#totalAmount').textContent = `$${finalAmount}`
+    let finalPrice = finalAmount + 10 + price;
+    document.querySelector('#totalAmount').textContent = `$${finalPrice.toFixed(2)}`;
+    salePrice = finalPrice
 }
+
+
+
+
+// Razerpay
+
+
+var orderDetails = {
+    "key": "rzp_live_808eBAPLXLQSvX",
+    "amount": salePrice * 100,
+    "currency": "USD",
+    "name": "Green Paradise",
+    "description": "Test Transaction",
+    "image": "https://nurserylive.com/cdn/shop/products/nurserylive-g-plant-money-plant-scindapsus-green-plant-in-4.5-inch-11-cm-ronda-no-1110-round-plastic-turquoise-plant-548401_512x512.jpg?v=1679750636",
+    "handler": function (response) {
+        alert(response.razorpay_payment_id);
+        alert(response.razorpay_order_id);
+        alert(response.razorpay_signature)
+    },
+    "prefill": {
+        "name": userInformation.firstName + ' ' + userInformation.lastName,
+        "email": userInformation.email,
+        "contact": userInformation.phone
+    },
+    "theme": {
+        "color": "#486e00"
+    }
+};
+var payment = new Razorpay(orderDetails);
+document.getElementById("checkoutButton").onclick = function (e) {
+    let paymentMethod = document.getElementById('paymentMethod').value;
+
+    if (paymentMethod === 'Cash on Delivery') {
+        window.location.href = 'success.html';
+    } else if (paymentMethod === 'Credit/Debit Card') {
+        payment.open();
+        e.preventDefault();
+    }
+};
