@@ -5,7 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
+  <script>
+    //////////////////////////////////SEARCH////////////////////////////////////////////////////
+    const searchBar = document.querySelector(".search");
+    const suggestion = document.querySelector(".suggestion-container");
+    searchBar.addEventListener("click", () => {
+      suggestion.classList.toggle("show");
+      searchBar.classList.toggle("increase-width-search");
+      console.log("Suggestion");
+    });
+    document.querySelector(".home-container").addEventListener("click", () => {
+      suggestion.classList.remove("show");
+    });
+    searchBar.addEventListener(
+      "input",
+      throttle(function () {
+        if (searchBar.value !== "") {
+          fetchSuggestions(searchBar.value);
+        } else {
+          suggestion.innerHTML = "";
+        }
+      }, 500)
+    );
+    async function fetchSuggestions(query) {
+      try {
+        let results = await fetch(
+          `https://new-plant-json-server.onrender.com/products?q=${query || ""}`
+        );
+        let data = await results.json();
+        if (data.length !== 0) {
+          appendSuggestions(data);
+        }
+      } catch (err) {
+        console.log(err);
+        const linkToProductPage = document.createElement("a");
 
+        linkToProductPage.classList.add("search-result");
+        linkToProductPage.textContent = "No result";
+        suggestion.append(linkToProductPage);
+      }
+    }
+
+    function appendSuggestions(name) {
+      suggestion.innerHTML = "";
+      name.forEach((element) => {
+        const linkToProductPage = document.createElement("a");
+        linkToProductPage.classList.add("search-result");
+        linkToProductPage.textContent = element.productName;
+        suggestion.append(linkToProductPage);
+        console.log(`proDUCT-${element.productName}`);
+      });
+    }
+    function throttle(fn, delay) {
+      let wait = false;
+      return function (...args) {
+        if (!wait) {
+          fn();
+          wait = true;
+          setTimeout(() => {
+            wait = false;
+          }, delay);
+        }
+      };
+    }
+  </script>
   <body>
     <nav class="flex-Jsb-Ac">
       <span class="logo">Green paradise</span>

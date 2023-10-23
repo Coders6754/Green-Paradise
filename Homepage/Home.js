@@ -14,6 +14,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
+
 localStorage.setItem('uid', "JIGe8tH5ceb6P5eXHNnRjE9vwKm2")
 
 //  <------------- Don't moidfy the above code ------------->
@@ -150,8 +151,21 @@ function createCard(pro) {
   cardImgDiv.classList.add("Productcard-img-div");
   cardNameNPrice.classList.add("Productcard-name-price");
   addToCart.classList.add("add-cart-button");
+  const cardCounter=document.querySelector(".cart-counter");
+
+  let prev=JSON.parse(localStorage.getItem("cartItems"))||0;
+  cardCounter.textContent =prev;
+
   addToCart.addEventListener("click", () => {
+    // if(localStorage.getItem(uid)){
+    //   addProductcard()
+    // }
+    let prev=JSON.parse(localStorage.getItem("cartItems"))||0;
+     prev=prev+1;
     updateUserData(pro.id, 'cartItems');
+    const cardCounter=document.querySelector(".cart-counter");
+    cardCounter.textContent =prev;
+localStorage.setItem('cartItems', JSON.stringify(prev));
   });
 
   card.append(cardImgDiv, cardContent);
@@ -243,6 +257,10 @@ function appendSuggestions(name) {
     const linkToProductPage = document.createElement("a");
     linkToProductPage.classList.add("search-result");
     linkToProductPage.textContent = element.productName;
+    linkToProductPage.addEventListener("click", () =>{
+      window.location.href="../test.html"   //replace with specific product page link
+      localStorage.setItem('productSearched',element.productName)
+    })
     suggestion.append(linkToProductPage);
     console.log(`proDUCT-${element.productName}`);
 
@@ -261,4 +279,14 @@ function throttle(fn, delay) {
     }
   }
 }
-///////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////NAV/////Links///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const loginBtn=document.querySelector('.login-btn');
+if(localStorage.getItem('uid')){
+  loginBtn.textContent="Rishita";
+  loginBtn.Disabled=true;
+}
+loginBtn.addEventListener('click',()=>{
+  window.location.href = "../test.html";
+  
+})
