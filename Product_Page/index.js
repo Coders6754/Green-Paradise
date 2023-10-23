@@ -24,85 +24,96 @@ localStorage.setItem('uid', "JIGe8tH5ceb6P5eXHNnRjE9vwKm2")
 
 // Function to fetch and display products for the "sec_img" section
 async function fetchProductsForSecImg() {
-    try {
-        const response = await fetch('https://new-plant-json-server.onrender.com/products');
-        const products = await response.json();
+  try {
+    const response = await fetch('https://new-plant-json-server.onrender.com/products');
+    const products = await response.json();
 
-        // Get the sorting dropdown element
-        const selectElementForSecImg = document.getElementById('sorting');
-        const selectedOption = selectElementForSecImg.value;
-        
+    // Get the sorting dropdown element
+    const selectElementForSecImg = document.getElementById('sorting');
+    const selectedOption = selectElementForSecImg.value;
 
-        // Sort the products based on the selected option
-        products.sort((a, b) => {
-            if (selectedOption === 'atoz') {
-                return a.productName.localeCompare(b.productName);
-            } else if (selectedOption === 'ztoa') {
-                return b.productName.localeCompare(a.productName);
-            } else if (selectedOption === 'lowtohigh') {
-                return a.price - b.price;
-            } else if (selectedOption === 'hightolow') {
-                return b.price - a.price;
-            } else {
-                return 0; // No sorting
-            }
-        });
 
-        displayProductsForSecImg(products);
-    } catch (error) {
-        console.error('Error:', error);
-    }
+    // Sort the products based on the selected option
+    products.sort((a, b) => {
+      if (selectedOption === 'atoz') {
+        return a.productName.localeCompare(b.productName);
+      } else if (selectedOption === 'ztoa') {
+        return b.productName.localeCompare(a.productName);
+      } else if (selectedOption === 'lowtohigh') {
+        return a.price - b.price;
+      } else if (selectedOption === 'hightolow') {
+        return b.price - a.price;
+      } else {
+        return 0; // No sorting
+      }
+    });
+
+    displayProductsForSecImg(products);
+  } catch (error) {
+    console.error('Error:', error);
+  }
 }
 
 // Function to display products for the "sec_img" section
 function displayProductsForSecImg(products) {
-    const productCatalog = document.querySelector('.sec_img .product_catalog');
+  const productCatalog = document.querySelector('.sec_img .product_catalog');
 
-    // Clear existing product cards
-    while (productCatalog.firstChild) {
-        productCatalog.removeChild(productCatalog.firstChild);
-    }
+  // Clear existing product cards
+  while (productCatalog.firstChild) {
+    productCatalog.removeChild(productCatalog.firstChild);
+  }
 
-    products.forEach(product => {
-        const productCard = createProductCard(product);
-        productCatalog.appendChild(productCard);
-    });
+  products.forEach(product => {
+    const productCard = createProductCard(product);
+    productCatalog.appendChild(productCard);
+  });
 }
 
 // Function to create a product card
 function createProductCard(product) {
-    const productCard = document.createElement('div');
-    productCard.classList.add('product_card');
+  const productCard = document.createElement('div');
+  productCard.classList.add('product_card');
 
-    // Create the product image container
-    const productCardContainer = document.createElement('div');
-    productCardContainer.classList.add('productcard_container');
+  // Create the product image container
+  const productCardContainer = document.createElement('div');
+  productCardContainer.classList.add('productcard_container');
 
-    // Create the favorite icon
-    const favoriteIcon = document.createElement('div');
-    favoriteIcon.classList.add('fav_icon');
-    favoriteIcon.setAttribute('data-tooltip', 'add to wishlist');
-    favoriteIcon.innerHTML = '<span class="material-symbols-outlined">favorite</span>';
-    productCardContainer.appendChild(favoriteIcon);
+  // Create the favorite icon
+  const favoriteIcon = document.createElement('div');
+  favoriteIcon.classList.add('fav_icon');
+  favoriteIcon.setAttribute('data-tooltip', 'add to wishlist');
+  favoriteIcon.innerHTML = '<span class="material-symbols-outlined">favorite</span>';
+  productCardContainer.appendChild(favoriteIcon);
 
-    // Create the product image
-    const productImage = document.createElement('div');
-    productImage.classList.add('pimg');
-    const img = document.createElement('img');
-    img.src = product.productImage[0]; // Use the first image URL
-    img.alt = product.productName;
-    productImage.appendChild(img);
-    productCardContainer.appendChild(productImage);
+  // Create the product image
+  const productImage = document.createElement('div');
+  productImage.classList.add('pimg');
+  const img = document.createElement('img');
+  img.src = product.productImage[0]; // Use the first image URL
+  img.alt = product.productName;
+  productImage.appendChild(img);
+  productCardContainer.appendChild(productImage);
 
-    productCard.appendChild(productCardContainer);
+  productCard.appendChild(productCardContainer);
 
-    // Create the product description
-    const productDescription = document.createElement('p');
-    productDescription.classList.add('product_des');
-    productDescription.innerHTML = `${product.productName}<br>$${product.price}`;
-    productCard.appendChild(productDescription);
+  // Create the product description
+  const productDescription = document.createElement('p');
+  productDescription.classList.add('product_des');
+  productDescription.innerHTML = `${product.productName}<br>$${product.price}`;
+  productCard.appendChild(productDescription);
 
-    return productCard;
+  const addCartButton = document.createElement('button');
+  addCartButton.classList.add('addcart');
+
+ // Create an image element for the button
+  const cartImage = document.createElement('img');
+  cartImage.src = 'images/cart_img.png'; // Replace with the actual image URL
+  cartImage.alt = 'Add to Cart';
+
+  addCartButton.appendChild(cartImage);
+  productCard.appendChild(addCartButton);
+
+  return productCard;
 }
 
 
@@ -143,7 +154,7 @@ let index = 0;
 
 
 function displayProducts(products) {
- 
+
   const nextBtn = document.getElementById("nextPro");
   nextBtn.addEventListener("click", () => {
     if (index < 3) {
@@ -191,9 +202,9 @@ function createCard(pro) {
   cardImgDiv.classList.add("Productcard-img-div");
   cardNameNPrice.classList.add("Productcard-name-price");
   addToCart.classList.add("addcart");
-    addToCart.addEventListener("click",()=>{
-      addingToCart(pro);
-    });
+  addToCart.addEventListener("click", () => {
+    addingToCart(pro);
+  });
 
 
 

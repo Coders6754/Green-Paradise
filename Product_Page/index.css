@@ -132,7 +132,7 @@
 }
 
 .product_des {
-  margin-top: 11px;
+  margin-top: 108px;
   display: flex;
   flex-direction: column;
   row-gap: 0.5rem;
@@ -274,9 +274,11 @@
   margin-left: 8px;
 }
 .addcart {
-  border: 2px solid #486e00;
-  padding: 0.3em;
-  border-radius: 50%;
+  width: 50px;
+}
+.addcart:hover{
+  width: 60px;
+  cursor: pointer;
 }
 
 
