@@ -104,8 +104,12 @@ function createProductCard(product) {
 
   const addCartButton = document.createElement('button');
   addCartButton.classList.add('addcart');
+  addCartButton.addEventListener("click", () => {
+    updateUserData(product.id, "cartItems")
+    alert("Item added to cart")
+  })
 
- // Create an image element for the button
+  // Create an image element for the button
   const cartImage = document.createElement('img');
   cartImage.src = 'images/cart_img.png'; // Replace with the actual image URL
   cartImage.alt = 'Add to Cart';
@@ -249,3 +253,32 @@ function throttle(fn, delay) {
 }
 
 
+async function updateUserData(productId, arrayName) {
+  const uid = localStorage.getItem('uid');
+  if (uid) {
+    const userRef = ref(db, `users/${uid}`);
+    get(userRef).then((snapshot) => {
+      if (snapshot.exists()) {
+        let userData = snapshot.val();
+        if (userData[arrayName]) {
+          if (arrayName === 'cartItems') {
+            userData[arrayName].push({ productId: productId, quantity: 1 });
+          } else {
+            userData[arrayName].push(productId);
+          }
+        } else {
+          userData[arrayName] = arrayName === 'cartItems' ? [{ productId: productId, quantity: 1 }] : [productId];
+        }
+        set(userRef, userData).then(() => {
+          console.log("User data updated successfully.");
+        }).catch((error) => {
+          console.error("Error updating user data:", error);
+        });
+      } else {
+        console.log("No data available");
+      }
+    }).catch((error) => {
+      console.error(error);
+    });
+  }
+}
