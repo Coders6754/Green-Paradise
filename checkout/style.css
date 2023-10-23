@@ -258,4 +258,21 @@ body {
   }
 }
 @media screen and (max-width: 650px) {
+  .formContainer div {
+    width: 100%;
+    flex-direction: column;
+    gap: 1em;
+  }
+  .formContainer input {
+    width: 100%;
+  }
+  .formContainer select {
+    width: 100%;
+  }
+  .buttonWarapperSuccess {
+    gap: 0.5em;
+  }
+  .deliverypageButtonWrapper {
+    gap: 0.5em;
+  }
 }
