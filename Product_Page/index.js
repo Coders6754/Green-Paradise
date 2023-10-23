@@ -1,73 +1,21 @@
-// // Function to fetch and display products
-// async function fetchProducts() {
-//     try {
-//         const response = await fetch('https://new-plant-json-server.onrender.com/products');
-//         const products = await response.json();
-//         displayProducts(products);
-//     } catch (error) {
-//         console.error('Error:', error);
-//     }
-// }
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js';
+import { getDatabase, ref, set, get } from 'https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js';
 
-// // Function to display products
-// function displayProducts(products) {
-//     const productCatalog = document.querySelector('.product_catalog');
+const firebaseConfig = {
+  apiKey: "AIzaSyAiwRTYbPsBZukrBa_PCJrz9yVly6bAAVQ",
+  authDomain: "plant-site-aac81.firebaseapp.com",
+  databaseURL: "https://plant-site-aac81-default-rtdb.asia-southeast1.firebasedatabase.app/",
+  projectId: "plant-site-aac81",
+  storageBucket: "plant-site-aac81.appspot.com",
+  messagingSenderId: "1029613642800",
+  appId: "1:1029613642800:web:4b431fb4e9adb5ce2439f5"
+};
 
-//     products.forEach(product => {
-//         const productCard = createProductCard(product);
-//         productCatalog.appendChild(productCard);
-//     });
-// }
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+localStorage.setItem('uid', "JIGe8tH5ceb6P5eXHNnRjE9vwKm2")
 
-// // Function to create a product card
-// function createProductCard(product) {
-//     const productCard = document.createElement('div');
-//     productCard.classList.add('product_card');
-
-//     // Create the product image container
-//     const productcardContainer = document.createElement('div');
-//     productcardContainer.classList.add('productcard_container');
-
-//     // Create the favorite icon
-//     const favoriteIcon = document.createElement('div');
-//     favoriteIcon.classList.add('fav_icon');
-//     favoriteIcon.setAttribute('data-tooltip', 'add to wishlist');
-//     favoriteIcon.innerHTML = '<span class="material-symbols-outlined">favorite</span>';
-//     productcardContainer.appendChild(favoriteIcon);
-
-//     // Create the product image
-//     const productImage  = document.createElement('div');
-//     productImage.classList.add('pimg');
-//     const img = document.createElement('img');
-//     img.src = product.productImage[0]; // Use the first image URL
-//     img.alt = product.productName;
-//     productImage.appendChild(img);
-//     productcardContainer.appendChild(productImage);
-
-//     productCard.appendChild(productcardContainer);
-
-//     // Create the product description
-//     const productDescription = document.createElement('div');
-//     productDescription.classList.add('product_des');
-
-//     const productName = document.createElement('div');
-//     productName.classList.add('product_name');
-//     productName.textContent = product.productName;
-//     productDescription.appendChild(productName);
-
-//     const productPrice = document.createElement('div');
-//     productPrice.classList.add('product_price');
-//     productPrice.textContent = `${product.price}`;
-//     productDescription.appendChild(productPrice);
-
-//     productCard.appendChild(productDescription);
-
-//     return productCard;
-// }
-
-// // Call the fetchProducts function to load products
-// fetchProducts();
-
+//////////////////////////   DON'T DO ANYTHING FOR THE ABOVE CODE /////////////////////////
 
 
 // Function to fetch and display products for the "sec_img" section
@@ -160,4 +108,110 @@ const selectElementForSecImg = document.getElementById('sorting');
 selectElementForSecImg.addEventListener('change', fetchProductsForSecImg);
 
 
+
+
+
+const productSlider = document.querySelector(".product-slider");
+
+async function fetchProducts() {
+  try {
+    const response = await fetch('https://new-plant-json-server.onrender.com/products');
+    const products = await response.json();
+
+    displayProducts(products);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+let index = 0;
+
+
+
+
+function displayProducts(products) {
+ 
+  const nextBtn = document.getElementById("nextPro");
+  nextBtn.addEventListener("click", () => {
+    if (index < 3) {
+      index = index + 3;
+      console.log(index);
+      productSlider.innerHTML = "";
+      displayProducts(products, index);
+    }
+  });
+  const prevBtn = document.getElementById("prevPro");
+  prevBtn.addEventListener("click", () => {
+    if (index > 2) {
+      index = index - 3;
+      console.log(index);
+      productSlider.innerHTML = "";
+      displayProducts(products, index);
+    }
+  });
+  for (let i = index; i < index + 3; i++) {
+    let card = createCard(products[i]);
+    productSlider.append(card);
+  }
+}
+function createCard(pro) {
+  const card = document.createElement("div");
+  const cardImgDiv = document.createElement("div");
+  const cardImg = document.createElement("img");
+  cardImg.src = pro.productImage[0];
+  const cardContent = document.createElement("div");
+  const cardNameNPrice = document.createElement("div");
+  const cardName = document.createElement("p");
+  const cardPrice = document.createElement("p");
+  const addToCart = document.createElement("button");
+  const addToCartImage = document.createElement("img");
+  addToCartImage.src = "../images/shopping-cart.png";
+  addToCart.append(addToCartImage);
+  cardName.textContent = pro.productName;
+  cardPrice.textContent = `${pro.price} UAH`;
+  cardNameNPrice.append(cardName, cardPrice);
+
+  cardContent.append(cardNameNPrice, addToCart);
+  cardImgDiv.append(cardImg);
+  cardContent.classList.add("Productcard-content");
+  card.classList.add("Productcard");
+  cardImgDiv.classList.add("Productcard-img-div");
+  cardNameNPrice.classList.add("Productcard-name-price");
+  addToCart.classList.add("add-cart-button");
+  addToCart.addEventListener("click", () => {
+    updateUserData(pro.id, 'cartItems');
+  });
+
+  card.append(cardImgDiv, cardContent);
+  return card;
+}
+
+
+fetchProducts();
+
+
+function appendSuggestions(name) {
+  suggestion.innerHTML = "";
+  name.forEach(element => {
+
+    const linkToProductPage = document.createElement("a");
+    linkToProductPage.classList.add("search-result");
+    linkToProductPage.textContent = element.productName;
+    suggestion.append(linkToProductPage);
+    console.log(`proDUCT-${element.productName}`);
+
+
+  });
+}
+function throttle(fn, delay) {
+  let wait = false;
+  return function (...args) {
+    if (!wait) {
+      fn();
+      wait = true;
+      setTimeout(() => {
+        wait = false;
+      }, delay)
+    }
+  }
+}
 
