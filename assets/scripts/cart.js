@@ -35,7 +35,7 @@ async function fetchUserDataAndProducts() {
             const cartItems = userData.cartItems || [];
             const wishlistItems = userData.wishlistItems || [];
 
-            const response = await fetch('https://new-plant-json-server.onrender.com/products');
+            const response = await fetch('https://inquisitive-cummerbund-duck.cyclic.app/products');
             const products = await response.json();
             // Filter
             const productsInCart = products.filter(product =>
@@ -480,3 +480,16 @@ function removeDiscount() {
     discountedAmountElement.textContent = `$0.00`;
     couponInput.disabled = false;
 }
+
+
+document.getElementById('bottomCheckoutButton').addEventListener('click', function () {
+    let amount;
+    if (discountedAmount == 0) {
+        amount = subtotalAmount
+    } else {
+        amount = discountedAmount
+    }
+
+    localStorage.setItem('finalAmount', amount);
+    window.location.href = 'checkout.html';
+});
