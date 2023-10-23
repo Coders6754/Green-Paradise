@@ -458,7 +458,6 @@ function showAlert(message) {
 const couponInput = document.querySelector('#coupon_input');
 const applyButton = document.querySelector('#coupon_apply_button');
 
-
 // Apply discount
 applyButton.addEventListener('click', () => {
     if (couponInput.value.toUpperCase() === 'HAPPY10') {
@@ -469,6 +468,7 @@ applyButton.addEventListener('click', () => {
         discountedAmountElement.textContent = `$${discount.toFixed(2)}`;
         showCoupon();
         couponInput.value = '';
+        couponInput.disabled = true
     } else {
         showAlert('Invalid coupon code. Please try again.')
     }
@@ -478,4 +478,5 @@ function removeDiscount() {
     discountedAmount = subtotalAmount;
     totalPriceElement.textContent = `$${discountedAmount.toFixed(2)}`;
     discountedAmountElement.textContent = `$0.00`;
+    couponInput.disabled = false;
 }
