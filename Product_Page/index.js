@@ -18,6 +18,10 @@ localStorage.setItem('uid', "JIGe8tH5ceb6P5eXHNnRjE9vwKm2")
 //////////////////////////   DON'T DO ANYTHING FOR THE ABOVE CODE /////////////////////////
 
 
+
+
+
+
 // Function to fetch and display products for the "sec_img" section
 async function fetchProductsForSecImg() {
     try {
@@ -95,18 +99,20 @@ function createProductCard(product) {
     // Create the product description
     const productDescription = document.createElement('p');
     productDescription.classList.add('product_des');
-    productDescription.innerHTML = `${product.productName}<br>${product.price}`;
+    productDescription.innerHTML = `${product.productName}<br>$${product.price}`;
     productCard.appendChild(productDescription);
 
     return productCard;
 }
 
 
+// productCard.addEventListener('click', () => {
+//   // Store the selected product in localStorage
+//   localStorage.setItem('selectedProduct', JSON.stringify(product));
 
-
-
-
-
+//   // Navigate to the product details page
+//   window.location.href = 'Product_Detail_Page.html';
+// });
 
 // Call the fetchProductsForSecImg function to load products for the "sec_img" section
 fetchProductsForSecImg();
@@ -184,7 +190,10 @@ function createCard(pro) {
   card.classList.add("Productcard");
   cardImgDiv.classList.add("Productcard-img-div");
   cardNameNPrice.classList.add("Productcard-name-price");
-  addToCart.classList.add("add-cart-button");
+  addToCart.classList.add("addcart");
+    addToCart.addEventListener("click",()=>{
+      addingToCart(pro);
+    });
 
 
 
