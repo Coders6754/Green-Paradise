@@ -79,11 +79,9 @@ https://www.google.com/
 
 ![Checkout Payment](https://github.com/Coders6754/devilish-drop-2377/blob/main/Images/readme_Images/Checkout%20payment%20selection.png)
 
-![Checkout Payment](https://github.com/Coders6754/devilish-drop-2377/blob/main/Images/readme_Images/Checkout%20payment%20selection.png)
-
 ![Checkout Payment gateway](https://github.com/Coders6754/devilish-drop-2377/blob/main/Images/readme_Images/Payment%20Gateway.png)
 
-![Payment Success](https://github.com/Coders6754/devilish-drop-2377/blob/main/Images/readme_Images/Payment%20Gateway.png)
+![Payment Success](https://github.com/Coders6754/devilish-drop-2377/blob/main/Images/readme_Images/Success.png)
 
 # Contributors
 
