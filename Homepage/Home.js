@@ -43,7 +43,7 @@ if (localStorage.getItem('uid')) {
 
 }
 loginBtn.addEventListener('click', () => {
-  window.location.href = "../test.html";
+  window.location.href = "/pages/login.html";
 
 })
 
