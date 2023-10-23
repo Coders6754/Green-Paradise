@@ -1,215 +1,231 @@
-document.addEventListener("DOMContentLoaded", function () {
-  let currentSlide = 0;
-  const totalSlides = document.querySelectorAll(".card").length;
-  let increaseProgress = true;
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js';
+import { getDatabase, ref, set, get } from 'https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAiwRTYbPsBZukrBa_PCJrz9yVly6bAAVQ",
+  authDomain: "plant-site-aac81.firebaseapp.com",
+  databaseURL: "https://plant-site-aac81-default-rtdb.asia-southeast1.firebasedatabase.app/",
+  projectId: "plant-site-aac81",
+  storageBucket: "plant-site-aac81.appspot.com",
+  messagingSenderId: "1029613642800",
+  appId: "1:1029613642800:web:4b431fb4e9adb5ce2439f5"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+localStorage.setItem('uid', "JIGe8tH5ceb6P5eXHNnRjE9vwKm2")
+
+//////////////////////////   DON'T DO ANYTHING FOR THE ABOVE CODE /////////////////////////
 
 
-  showSlide(currentSlide, increaseProgress);
-
-  const nextBtn=document.getElementById("nextBtn");
-  nextBtn.addEventListener("click", () => {
-    if (currentSlide < totalSlides - 1) {
-      currentSlide++;
-      increaseProgress = true;
-
-      showSlide(currentSlide, increaseProgress);
-    }
-    
-  });
-
-  document.getElementById("prevBtn").addEventListener("click", () => {
-    if (currentSlide > 0) {
-      currentSlide--;
-      increaseProgress = false;
-
-      showSlide(currentSlide, increaseProgress);
-    }
-  });
-
-
-  function showSlide(slideIndex, increaseProgress) {
-    const slides = document.querySelectorAll(".card");
-    for (let i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-    }
-    slides[slideIndex].style.display = "block";
-    updatePageCounter(slideIndex, increaseProgress);
-  }
-
-
-  function updatePageCounter(slideIndex, increaseProgress) {
-    const pageCounter = document.getElementById("pageCounter");
-    pageCounter.textContent = `${slideIndex + 1} / ${totalSlides}`;
-    console.log(slideIndex + 1);
-    if (slideIndex + 1 <= totalSlides) {
-      updateProgress(increaseProgress);
-    }
-  }
-});
-let circularProgress = document.querySelector(".circular-progress"),
-  progressValue = document.querySelector(".progress-value");
-let progressStartValue = 0,
-  progressEndValue = 100,
-  speed = 100;
-function updateProgress(increaseProgress) {
-  if (increaseProgress) {
-    progressStartValue = progressStartValue + 25;
-  } else {
-    progressStartValue = progressStartValue - 25;
-  }
-  progressValue.textContent = `${progressStartValue}%`;
-  circularProgress.style.background = `conic-gradient(#486e00 ${
-    progressStartValue * 3.6
-  }deg, #ededed 0deg)`;
-}
-
-const productSlider=document.querySelector(".product-slider");
-
-async function fetchProducts() {
+// Function to fetch and display products for the "sec_img" section
+async function fetchProductsForSecImg() {
     try {
         const response = await fetch('https://new-plant-json-server.onrender.com/products');
         const products = await response.json();
-        console.log(products);
-      
-        displayProducts(products);
+
+        // Get the sorting dropdown element
+        const selectElementForSecImg = document.getElementById('sorting');
+        const selectedOption = selectElementForSecImg.value;
+        
+
+        // Sort the products based on the selected option
+        products.sort((a, b) => {
+            if (selectedOption === 'atoz') {
+                return a.productName.localeCompare(b.productName);
+            } else if (selectedOption === 'ztoa') {
+                return b.productName.localeCompare(a.productName);
+            } else if (selectedOption === 'lowtohigh') {
+                return a.price - b.price;
+            } else if (selectedOption === 'hightolow') {
+                return b.price - a.price;
+            } else {
+                return 0; // No sorting
+            }
+        });
+
+        displayProductsForSecImg(products);
     } catch (error) {
         console.error('Error:', error);
     }
 }
-let index=0;
+
+// Function to display products for the "sec_img" section
+function displayProductsForSecImg(products) {
+    const productCatalog = document.querySelector('.sec_img .product_catalog');
+
+    // Clear existing product cards
+    while (productCatalog.firstChild) {
+        productCatalog.removeChild(productCatalog.firstChild);
+    }
+
+    products.forEach(product => {
+        const productCard = createProductCard(product);
+        productCatalog.appendChild(productCard);
+    });
+}
+
+// Function to create a product card
+function createProductCard(product) {
+    const productCard = document.createElement('div');
+    productCard.classList.add('product_card');
+
+    // Create the product image container
+    const productCardContainer = document.createElement('div');
+    productCardContainer.classList.add('productcard_container');
+
+    // Create the favorite icon
+    const favoriteIcon = document.createElement('div');
+    favoriteIcon.classList.add('fav_icon');
+    favoriteIcon.setAttribute('data-tooltip', 'add to wishlist');
+    favoriteIcon.innerHTML = '<span class="material-symbols-outlined">favorite</span>';
+    productCardContainer.appendChild(favoriteIcon);
+
+    // Create the product image
+    const productImage = document.createElement('div');
+    productImage.classList.add('pimg');
+    const img = document.createElement('img');
+    img.src = product.productImage[0]; // Use the first image URL
+    img.alt = product.productName;
+    productImage.appendChild(img);
+    productCardContainer.appendChild(productImage);
+
+    productCard.appendChild(productCardContainer);
+
+    // Create the product description
+    const productDescription = document.createElement('p');
+    productDescription.classList.add('product_des');
+    productDescription.innerHTML = `${product.productName}<br>${product.price}`;
+    productCard.appendChild(productDescription);
+
+    return productCard;
+}
+
+
+
+
+
+
+
+
+// Call the fetchProductsForSecImg function to load products for the "sec_img" section
+fetchProductsForSecImg();
+
+// Listen for changes to the sorting dropdown
+const selectElementForSecImg = document.getElementById('sorting');
+selectElementForSecImg.addEventListener('change', fetchProductsForSecImg);
+
+
+
+
+
+const productSlider = document.querySelector(".product-slider");
+
+async function fetchProducts() {
+  try {
+    const response = await fetch('https://new-plant-json-server.onrender.com/products');
+    const products = await response.json();
+
+    displayProducts(products);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+let index = 0;
+
 
 
 
 function displayProducts(products) {
-    const nextBtn=document.getElementById("nextPro");
-    nextBtn.addEventListener("click", () => {
-        if(index<3) 
-        {index=index+3;
-        console.log(index);
-        productSlider.innerHTML="";
-    displayProducts(products,index);}
-    });
-    const prevBtn=document.getElementById("prevPro");
-    prevBtn.addEventListener("click", () => {
-        if(index>2) 
-        {index=index-3;
-        console.log(index);
-        productSlider.innerHTML="";
-    displayProducts(products,index);}
-    });
-    for(let i=index; i<index+3;i++){
-        let card=createCard(products[i]);
-    productSlider.append(card);
+ 
+  const nextBtn = document.getElementById("nextPro");
+  nextBtn.addEventListener("click", () => {
+    if (index < 3) {
+      index = index + 3;
+      console.log(index);
+      productSlider.innerHTML = "";
+      displayProducts(products, index);
     }
-}
-function createCard(pro){
-    const card=document.createElement("div");
-    const cardImgDiv=document.createElement("div");
-    const cardImg=document.createElement("img");
-    cardImg.src=pro.productImage[0];
-    const cardContent=document.createElement("div");
-    const cardNameNPrice=document.createElement("div");
-    const cardName=document.createElement("p");
-    const cardPrice=document.createElement("p");
-    const addToCart=document.createElement("button");
-    const addToCartImage=document.createElement("img");
-    addToCartImage.src="../images/shopping-cart.png";
-    addToCart.append(addToCartImage);
-    cardName.textContent=pro.productName;
-    cardPrice.textContent=`${pro.price} UAH`;
-    cardNameNPrice.append(cardName,cardPrice);
-    
-    cardContent.append(cardNameNPrice,addToCart);
-    cardImgDiv.append(cardImg);
-    cardContent.classList.add("Productcard-content");
-    card.classList.add("Productcard");
-    cardImgDiv.classList.add("Productcard-img-div");
-    cardNameNPrice.classList.add("Productcard-name-price");
-    addToCart.classList.add("add-cart-button");
-    addToCart.addEventListener("click",()=>{
-      addingToCart(pro);
-    });
-
-    card.append(cardImgDiv,cardContent);
-return card;
-}
-function addingToCart(pro){
-  let cartArray=JSON.parse(localStorage.getItem("product-id"))||[];
-  cartArray.push(pro.id);
-  localStorage.setItem("product-id",JSON.stringify(cartArray));
-  console.log(cartArray);
-  const countDisplay=document.querySelector(".cart-counter");
-  countDisplay.textContent=cartArray.length;
-
+  });
+  const prevBtn = document.getElementById("prevPro");
+  prevBtn.addEventListener("click", () => {
+    if (index > 2) {
+      index = index - 3;
+      console.log(index);
+      productSlider.innerHTML = "";
+      displayProducts(products, index);
+    }
+  });
+  for (let i = index; i < index + 3; i++) {
+    let card = createCard(products[i]);
+    productSlider.append(card);
   }
+}
+function createCard(pro) {
+  const card = document.createElement("div");
+  const cardImgDiv = document.createElement("div");
+  const cardImg = document.createElement("img");
+  cardImg.src = pro.productImage[0];
+  const cardContent = document.createElement("div");
+  const cardNameNPrice = document.createElement("div");
+  const cardName = document.createElement("p");
+  const cardPrice = document.createElement("p");
+  const addToCart = document.createElement("button");
+  const addToCartImage = document.createElement("img");
+  addToCartImage.src = "../images/shopping-cart.png";
+  addToCart.append(addToCartImage);
+  cardName.textContent = pro.productName;
+  cardPrice.textContent = `${pro.price} UAH`;
+  cardNameNPrice.append(cardName, cardPrice);
+
+  cardContent.append(cardNameNPrice, addToCart);
+  cardImgDiv.append(cardImg);
+  cardContent.classList.add("Productcard-content");
+  card.classList.add("Productcard");
+  cardImgDiv.classList.add("Productcard-img-div");
+  cardNameNPrice.classList.add("Productcard-name-price");
+  addToCart.classList.add("add-cart-button");
+
+
+
+  addToCart.addEventListener("click", () => {
+    updateUserData(pro.id, 'cartItems');
+  });
+
+  card.append(cardImgDiv, cardContent);
+  return card;
+
+}
+
+
 
 fetchProducts();
 
 
-const searchBar=document.querySelector(".search");
-const suggestion = document.querySelector(".suggestion-container");
-searchBar.addEventListener("click",()=>{
-  suggestion.classList.toggle("show");
-  searchBar.classList.toggle("increase-width-search");
-  console.log("Suggestion")
-})
-document.querySelector(".home-container").addEventListener("click",()=>{
-  suggestion.classList.remove("show");
-
-})
-searchBar.addEventListener("input",throttle(
-  function(){
-    if(searchBar.value!==""){
-      fetchSuggestions(searchBar.value);
-
-    }
-    else{
-      suggestion.innerHTML=""
-    }
-},500));
-   async function fetchSuggestions(query) {
-try{
-let results = await fetch(`https://new-plant-json-server.onrender.com/products?q=${query||""}`);
-let data = await results.json();
-if(data.length!==0){
-  appendSuggestions(data);
-}
-
-}
-
-catch(err){
-console.log(err); 
-const linkToProductPage=document.createElement("a");
-
-linkToProductPage.classList.add("search-result");
-linkToProductPage.textContent="No result";
-suggestion.append(linkToProductPage);
-
-}
-   }  
-
-function appendSuggestions(name){
-  suggestion.innerHTML="";
+function appendSuggestions(name) {
+  suggestion.innerHTML = "";
   name.forEach(element => {
-    
-    const linkToProductPage=document.createElement("a");
+
+    const linkToProductPage = document.createElement("a");
     linkToProductPage.classList.add("search-result");
-    linkToProductPage.textContent=element.productName;
+    linkToProductPage.textContent = element.productName;
     suggestion.append(linkToProductPage);
     console.log(`proDUCT-${element.productName}`);
 
 
   });
 }
-function throttle(fn,delay){
-  let wait=false;
-  return function(...args){
-      if(!wait){
-          fn();
-          wait=true;
-          setTimeout(()=>{
-              wait=false;
-          },delay)
-      }
+function throttle(fn, delay) {
+  let wait = false;
+  return function (...args) {
+    if (!wait) {
+      fn();
+      wait = true;
+      setTimeout(() => {
+        wait = false;
+      }, delay)
+    }
   }
 }
+
+
