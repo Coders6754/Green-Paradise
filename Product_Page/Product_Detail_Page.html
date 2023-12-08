@@ -5,12 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Product Details</title>
     <link rel="stylesheet" href="product_details_styles.css" />
-    <link rel="shortcut icon" href="images/favicons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../Styles/navbar.css" />
+    <link rel="stylesheet" href="../Styles/login.css" />
+    <link rel="stylesheet" href="./components/popular_products_container/popular_products_container.css">
+    <link rel="stylesheet" href="./components/footer/footer.css">
+    <link rel="shortcut icon" href="/Images/favicons/favicon.ico" type="image/x-icon">
   </head>
   <body>
+    <!-- Navbar for laptop -->
+    <nav id="navbar_bigscreen_container"></nav>
+
+    <!-- navbar for mobile -->
+    <nav id="navbar_smallscreen_container"></nav>
+
+    <!-- popup login -->
+    <div id="popup_login"></div>
+
+    <!-- pop up sign up -->
+    <div id="popup_signup"></div>
+
     <div id="content">
       <div id="first_row">
-        <img id="banner" src="https://new-plant-json-server.onrender.com/products" alt="Product_Banner" />
+        <img id="banner" src="" alt="" />
         <div style="display: flex; flex-direction: column; gap: 20px">
           <div id="heading_Price">
             <div>
@@ -77,7 +93,45 @@
           </div>
         </div>
       </div>
-
+    <div id="popularProducts">
+      <div id="popularProducts_head">
+        <div id="heading">
+          <h2>Popular Products</h2>
+          <img src="./images/popular_products_underline.png" alt="" id="catalog_underline">
+        </div>
+        <div id="navigator">
+          <button id="prev_popular_product">
+            <svg fill="#ffffff" height="32px" width="32px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330.002 330.002" xml:space="preserve"
+              stroke="#ffffff">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <path id="XMLID_227_"
+                  d="M233.25,306.001L127.5,165.005L233.25,24.001c4.971-6.628,3.627-16.03-3-21c-6.627-4.971-16.03-3.626-21,3 L96.75,156.005c-4,5.333-4,12.667,0,18l112.5,149.996c2.947,3.93,7.451,6.001,12.012,6.001c3.131,0,6.29-0.978,8.988-3.001 C236.878,322.03,238.221,312.628,233.25,306.001z">
+                </path>
+              </g>
+            </svg>
+          </button>
+          <button id="next_popular_product">
+            <svg fill="#ffffff" height="32px" width="32px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330 330" xml:space="preserve" stroke="#ffffff">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <path id="XMLID_222_"
+                  d="M250.606,154.389l-150-149.996c-5.857-5.858-15.355-5.858-21.213,0.001 c-5.857,5.858-5.857,15.355,0.001,21.213l139.393,139.39L79.393,304.394c-5.857,5.858-5.857,15.355,0.001,21.213 C82.322,328.536,86.161,330,90,330s7.678-1.464,10.607-4.394l149.999-150.004c2.814-2.813,4.394-6.628,4.394-10.606 C255,161.018,253.42,157.202,250.606,154.389z">
+                </path>
+              </g>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div id="popularProducts_body">
+      </div>
+    </div>
+    <div id="footer">
+    
     </div>
   </div>
   </body>

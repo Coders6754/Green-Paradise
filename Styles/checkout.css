@@ -1,0 +1,365 @@
+@font-face {
+  font-family: "ClashDisplay SemiBold";
+  src: url("../Product_Page/fonts/ClashDisplay-Semibold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "ClashDisplay Regular";
+  src: url("../Product_Page/fonts/ClashDisplay-Regular.otf") format("opentype");
+}
+
+* {
+  font-family: "ClashDisplay Regular", sans-serif;
+}
+/* ------------------------------ */
+
+#kkcontainer {
+  padding-top: 80px;
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+input {
+  border-radius: 8px;
+  border: 2px solid grey;
+  padding: 12px;
+  width: 250px;
+}
+#indian-states {
+  border: 1px solid red;
+  border-radius: 8px;
+  border: 2px solid grey;
+  padding: 12px;
+  width: 278px;
+}
+.kkdetails {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.kkbuttons {
+  gap: 4px;
+  display: flex;
+  justify-content: space-between;
+}
+.checkbox {
+  margin-top: 25px;
+}
+#kkcont {
+  margin-top: 5px;
+  /* border: 1px solid red; */
+  padding: 15px;
+  justify-content: end;
+}
+#kkdelivery {
+  /* border: 1px solid red; */
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: none;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(24, 81, 26);
+  color: white;
+  cursor: pointer;
+  width: 100%;
+  letter-spacing: 1px;
+}
+h1,
+h3 {
+  color: rgb(24, 81, 26);
+}
+
+.kkcity {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  gap: 30px;
+}
+
+#kkbackbtn {
+  background-color: white;
+  color: green;
+  border: 2px solid #054203;
+
+  /* border-color: #054203; */
+  border-radius: 10px;
+}
+#kkbackbtn:hover {
+  background-color: #97af97;
+  color: #ffffff;
+}
+#kkpaybtn {
+  color: white;
+  background-color: rgb(24, 81, 26);
+  width: 100%;
+  /* border: 1px solid red; */
+  padding: 13px;
+}
+
+.checkbox {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-between;
+}
+.checkbox div {
+  width: 93%;
+  /* border: 1px solid red; */
+}
+#input_checkbox {
+  border-radius: 8px;
+  border: 2px solid grey;
+  padding: 0px;
+  width: 15px;
+}
+
+.kkcontImg {
+  width: 150px;
+margin-top: -400px;
+}
+.kkcontImg2 {
+  width: 190px;
+  margin-top: -80px;
+}
+/* 
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #109506;
+  border-color:#109506 transparent #109506 transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} */
+
+.mainEmptyDiv {
+  width: 38%;
+  margin: auto;
+}
+
+.imgEmptyDiv img {
+  width: 100%;
+  /* filter: contrast(green); */
+  filter: saturate(200%);
+
+  /* Adjust the hue to make the image appear green */
+  filter: hue-rotate(-60deg);
+}
+
+.mainEmptyDiv h3 {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #486e00;
+}
+.mainEmptyDiv a {
+  text-decoration: none;
+  /* border: 1px solid red; */
+  background-color: #486e00;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+.mainEmptyDiv a:hover {
+  background-color: #72ac08;
+}
+.link_catalog {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+/* #itemPricing {
+} */
+#itemDetails {
+  display: flex;
+  flex-direction: column;
+  height: 35vh;
+  overflow: auto;
+}
+
+#itemDetails::-webkit-scrollbar {
+  width: 3px;
+}
+
+#itemDetails::-webkit-scrollbar-thumb {
+  background: #a9aaa9;
+  border-radius: 20px;
+}
+
+#itemDetails::-webkit-scrollbar-thumb:hover {
+  background: #054203;
+}
+#itemDetails > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 10px;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: rgba(99, 99, 99, 0.15) 0px 2px 8px 0px;
+}
+
+#itemDetails > div img {
+  width: 25%;
+}
+.itemPricing {
+  display: flex;
+  justify-content: space-between;
+}
+
+#quantityBox {
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-end;
+  gap: 10px;
+}
+#quantityBox div {
+  /* border: 1px solid red; */
+  justify-content: space-around;
+}
+.itemPrice {
+  text-align: end;
+}
+.itemName {
+  margin: 0;
+  padding: 0;
+}
+.detailsDiv {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: flex-end;
+}
+
+.minus {
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(95, 98, 98);
+  color: white;
+  padding: 0px 3px;
+}
+.red-button {
+  color: white;
+  background-color: red;
+  cursor: not-allowed;
+}
+.plus {
+  border-radius: 5px;
+  border: none;
+  background-color: green;
+  color: white;
+  padding: 0px 3px;
+}
+
+body {
+  font-size: 16px;
+}
+
+@media screen and (max-width: 1190px) {
+  body {
+    font-size: 14px;
+  }
+  #kkcontainer {
+    width: 90%;
+    /* margin: auto; */
+    padding-top: 82px;
+    /* max-height: 35vh; */
+    /* display: flex; */
+    flex-direction: column-reverse;
+    /* justify-content: space-evenly; */
+  }
+  input {
+    border-radius: 8px;
+    border: 2px solid grey;
+    padding: 10px;
+    width: 100%;
+    display: grid;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .kkbuttons {
+    display: flex;
+    flex-direction: column;
+  }
+  #kkpaybtn{
+      width: 100%;
+  }
+  #kkbackbtn{
+    width: 100%;
+  }
+  #kkcont{
+    width: 100%;
+  }
+  #indian-states {
+    border-radius: 8px;
+    border: 2px solid grey;
+    padding: 10px;
+    width: 102.5%;
+    margin-top: 20px;
+  }
+  .mainEmptyDiv h3 {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 12px;
+    #kkcontainer{
+      width: 90%;
+      margin: auto;
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: space-evenly;
+    }
+  }
+  .kkbuttons {
+    display: flex;
+    flex-direction: column;
+  }
+  .mainEmptyDiv h3 {
+    font-size: 1rem;
+  }
+}
+
+#kkcont:disabled {
+  background-color: red;
+  cursor: not-allowed;
+}
+
+#kkcont:not(:disabled):hover {
+  background-color: green;
+  cursor: pointer;
+}
+
+#kkpaybtn:disabled {
+  background-color: red;
+  cursor: not-allowed;
+}
+
+#kkpaybtn:not(:disabled):hover {
+  background-color: green;
+  cursor: pointer;
+}

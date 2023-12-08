@@ -3,313 +3,267 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="./Homepage/Home.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="/Images/favicons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./Product_Page/components/footer/footer.css" />
+    <link rel="stylesheet" href="./Styles/home_page.css" />
+    <link rel="stylesheet" href="./Styles/navbar.css" />
+    <link rel="stylesheet" href="./Styles/login.css" />
+    <link
+      rel="stylesheet"
+      href="./Product_Page/components/popular_products_container/popular_products_container.css"
+    />
+    <title>Home Page</title>
   </head>
-  <body>
-    <!-- <iframe src="../Navbar/navbar.html"" frameborder="0" width="100%" height="70"></iframe> -->
-    <nav class="flex-Jsb-Ac">
-      <span class="logo">Green paradise</span>
-      <div class="flex-Jsb-Ac divWithLink"> 
-        <span class="Catalog-GoToLink"><a href="./Product_Page/index.html">Catalog</a></span>
-        <span class="Sale-GoToSale"><a href="./test.html">Sale</a></span>
-        <span class="Delivery-GoToDelivery"><a href="./test.html">Delivery and payment</a></span>
-        <span class="Contact-GoToContact">Contact</span>
-      </div>
-      <div class="search-container">
-        <input
-        type="text"
-        name="search"
-        class="search"
-        placeholder="Search Product...."
-      />
-      <div class="suggestion-container">
-      <p>Search for products...</p>
-      </div>
-      </div>
-      <div class="flex-Jsb-Ac accNcart">
-        <button class="round-btn" disabled>
-          <img src="../images/user.png" alt="user" />
+  <body style="user-select: none">
+    <!-- <img src="" alt=""> -->
+    <!-- Navbar for laptop -->
+    <nav id="navbar_bigscreen_container"></nav>
+
+    <!-- navbar for mobile -->
+    <nav id="navbar_smallscreen_container"></nav>
+
+    <!-- popup login -->
+    <div id="popup_login"></div>
+
+    <!-- pop up sign up -->
+    <div id="popup_signup"></div>
+
+    <!-- Data of the homepage starts here -->
+    <div id="first_tile">
+      <div>
+        <h1>Create <br />a green paradise <br />right at home</h1>
+        <img src="./Images/home_page_images/bottom1effect.png" alt="bottom" />
+        <p>20% of the profit goes to help the UN Peace mission</p>
+        <button
+          onclick="
+          window.location.assign('./Product_Page/index.html') 
+        "
+        >
+          Catalog
         </button>
+      </div>
+      <div>
+        <div>
+          <img
+            src="./Images/home_page_images/firstcrousal1 (1).jpg"
+            alt="tile"
+          />
+        </div>
+      </div>
+    </div>
 
-        <div class="dropdown">
-          <button class="dropdown-button">
-            <img src="../images/down-arrow.png" alt="" />
+    <div id="home_page_container"></div>
+
+    <div id="second_tile_container">
+      <div>
+        <div id="second_tile">
+          <div class="item1">
+            <img src="./Images/home_page_images/secondcrousal (2).jpg" alt="" />
+          </div>
+          <div class="item2">
+            <!-- <img src="./Images/home_page_images/secondcrousal (1).jpg" alt="" /> -->
+          </div>
+          <div class="item3">
+            <img src="./Images/home_page_images/secondcrousal (3).jpg" alt="" />
+          </div>
+        </div>
+        <div>
+          <h1>About Us</h1>
+          <img
+            src="./Images/home_page_images/bottom2effect.png"
+            alt="bottom2effect"
+          />
+          <p>
+            We are a store of indoor plants of various types in Kyiv. Hundreds
+            of different types of plants: from ficuses to ferns, we love and
+            cherish our plants from their very "birth", so they will definitely
+            bring happiness, joy, love and comfort to your home.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div style="max-width: 1200px; margin: auto" id="popularProducts">
+      <div id="popularProducts_head">
+        <div id="heading">
+          <h2>Popular Products</h2>
+          <img
+            src="./images/popular_products_underline.png"
+            alt=""
+            id="catalog_underline"
+          />
+        </div>
+        <div id="navigator">
+          <button id="prev_popular_product" title="a">
+            <svg
+              fill="#ffffff"
+              height="32px"
+              width="32px"
+              version="1.1"
+              id="Layer_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 330.002 330.002"
+              xml:space="preserve"
+              stroke="#ffffff"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  id="XMLID_227_"
+                  d="M233.25,306.001L127.5,165.005L233.25,24.001c4.971-6.628,3.627-16.03-3-21c-6.627-4.971-16.03-3.626-21,3 L96.75,156.005c-4,5.333-4,12.667,0,18l112.5,149.996c2.947,3.93,7.451,6.001,12.012,6.001c3.131,0,6.29-0.978,8.988-3.001 C236.878,322.03,238.221,312.628,233.25,306.001z"
+                ></path>
+              </g>
+            </svg>
           </button>
-          <div class="dropdown-content">
-            <div class="welcome-tagline">
-              <p>Welcome</p>
-              <span>To Greener Paradise!</span>
-            </div>
-            <button class="login-btn">Login/Sign Up</button>
-          </div>
-        </div>
 
-       <div class="cartBtn-and-counter"> 
-         <button class="round-btn">
-        <img src="../images/shopping-cart.png" alt="bag" />
-      </button>
-    <div class="cart-counter">0</div>
-      </div>
-
-      </div>
-      <img  class="ham-menu" src="../Images/menu.png">
-
-    </nav>
-    <div class="flx-jC-aC home-container">
-      <div class="flx-jC-aC content-container">
-        <div class="content">
-          <div class="Heading">
-            <p>Create</p>
-            <p>a green paradise</p>
-            <p>right at a home</p>
-          </div>
-          <div class="tagN">
-            <span>20% of the profit goes to help the Armed Forces of </span>
-            <span style="color: rgb(0, 98, 255)">Uk</span>
-            <span style="color: yellow">raine</span>
-          </div>
-          <button class="catalog">Catalog</button>
+          <button id="next_popular_product" title="a">
+            <svg
+              fill="#ffffff"
+              height="32px"
+              width="32px"
+              version="1.1"
+              id="Layer_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 330 330"
+              xml:space="preserve"
+              stroke="#ffffff"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  id="XMLID_222_"
+                  d="M250.606,154.389l-150-149.996c-5.857-5.858-15.355-5.858-21.213,0.001 c-5.857,5.858-5.857,15.355,0.001,21.213l139.393,139.39L79.393,304.394c-5.857,5.858-5.857,15.355,0.001,21.213 C82.322,328.536,86.161,330,90,330s7.678-1.464,10.607-4.394l149.999-150.004c2.814-2.813,4.394-6.628,4.394-10.606 C255,161.018,253.42,157.202,250.606,154.389z"
+                ></path>
+              </g>
+            </svg>
+          </button>
         </div>
       </div>
-      <div class="slider-container">
-        <div class="circular-container">
-          <div class="circular-progress">
-            <span class="progress-value">25%</span>
-          </div>
-        </div>
-        <div class="card-slider">
-          <div class="card">
-            <img
-              src="https://1ashutoshverma.github.io/Green-Paradise/Images/home_page_images/firstcrousal1%20(1).jpg"
-              alt="Image 1"
-            />
-          </div>
-          <div class="card">
-            <img src="./Homepage/HomeImages/hero2.jpg" alt="Image 2" />
-          </div>
-          <div class="card">
-            <img src="./Homepage/HomeImages/catImg2.jpg" alt="Image 3" />
-          </div>
-          <div class="card">
-            <img src="./Homepage/HomeImages/catImg0.jpg" alt="Image 4" />
-          </div>
-          <!-- Add more card elements as needed -->
-        </div>
-        <div class="controls">
-          <button class="control-btn" id="prevBtn"><</button>
-          <span id="pageCounter">1 / 4</span>
-          <button class="control-btn" id="nextBtn">></button>
-        </div>
-      </div>
+      <div id="popularProducts_body"></div>
     </div>
-    <section class="flx-jC-aC section1">
-      <div class="flx-jC-aC grid">
-        <div class="halfWidth twin">
-          <img src="./Homepage/HomeImages/grid1A.jpg" ></img>
-          <img src="./Homepage/HomeImages/grid2A.jpg" class=""></img>
-
-        </div>
-        <div class="halfWidth single">
-          <img src="./Homepage/HomeImages/gridB.jpg">
-        </div>
-      </div>
-      <div class="about-us">
-        <div class="heading">
-          <h2>About Us</h2>
-        </div>
-        <p>We are a store of indoor plants of various types in Kyiv. Hundreds of different tyoes of plant: from ficuses to ferns, we love and cherish our plants from their very "birt", so they will definitely bring happiness, joy, love and comfort to your home.</p>
-      </div>
-    </section>
-    <section class="section2">
+    <div class="catogary_section">
       <div>
-        <div class="flx-jC-aC section2Head">
-          <div class="heading">
-            <h2>Popular products </h2>
-          </div>
-            <div class="control2">
-              <button class="control-btn" id="prevPro"><</button>
-              <!-- <span id="pageCounter">1 / 4</span> -->
-              <button class="control-btn" id="nextPro">></button>
-          </div>
-         
-        </div>
-        <div class="card-list">
-          <div class="product-slider"></div>
+        <div class="heading_green">Catogeries</div>
+        <div class="bottom_image">
+          <img src="./Images/home_page_images/bottom1effect.png" alt="bottom" />
         </div>
       </div>
-      
-   </section>
-   <section class="flx-jC-aC section1">
-    <div class="flx-jC-aC grid grid2">
-
-      <h2>Scarlett Baker</h2>
-      <p>"I recently purchased a beautiful Monstera Deliciosa from this plant shop, and I couldn't be happier. The plant arrived in excellent condition, and it has flourished in my home. Its lush green leaves add a touch of nature to my living space. The quality and care put into these plants are truly remarkable. I highly recommend this store for all plant enthusiasts!"</p>
-   </div>
-    <div class="about-us">
-      <div class="heading">
-        <h2>What our customer think</h2>
-      </div>
-<P>We have many customers testimonials from our new and regular customers
-  You can trust us, because we love our work and provide you with only honest reviews</P>    </div>
-  </section>
-  <section class="section3">
-      <div class="flx-jC-aC section3Head">
-        <div class="heading">
-          <h2>Categories </h2>
-        </div>
-          <button class="catalog">Catalog</button>
-       
-      </div>
-      <div class="categories-list">
-      <div class="cat-card">
-        <div class="cat-image-div">
-          <img class="cat-img"src="./Homepage/HomeImages/catImg0.jpg">
-      </div>
-      <div class="cat-content">
-      <div class="cat-link flx-jC-aC" >
-        <p>Houseplant</p>
-        <img src="./Homepage/HomeImages/arrow-right.png">
-      </div>
-      </div>
-      </div>
-      <div class="cat-card">
-        <div class="cat-image-div">
-          <img class="cat-img"src="./Homepage/HomeImages/catImg1.jpg">
-      </div>
-      <div class="cat-content">
-      <div class="cat-link flx-jC-aC">
-        <p>Houseplant sets</p>
-        <img src="./Homepage/HomeImages/arrow-right.png">
-
-      </div>
-      </div>
-      </div>
-      <div class="cat-card ">
-        <div class="cat-image-div">
-          <img class="cat-img"src="./Homepage/HomeImages/catImg2.jpg">
-
-      </div>
-      <div class="cat-content">
-      <div class="cat-link flx-jC-aC">
-        <p>Flowerpots</p>
-        <img src="./Homepage/HomeImages/arrow-right.png">
-
-      </div>
-      </div>
-      </div>
-      <div class="cat-card ">
-        <div class="cat-image-div">
-          <img class="cat-img"src="./Homepage/HomeImages/catImg3.jpg">
-      </div>
-      <div class="cat-content">
-      <div class="cat-link flx-jC-aC">
-        <p>Soil and Fertilizers</p>
-        <img src="./Homepage/HomeImages/arrow-right.png">
-
-      </div>
-      </div>
-      </div>
-      </div>
-    
- </section>
- <section class="flx-jC-aC section1">
-  <div class="flx-jC-aC grid">
-    <div class="halfWidth twin">
-      <img src="./Homepage/HomeImages/paymentGrid1A.jpg" ></img>
-      <img src="./Homepage/HomeImages/paymentGrid2A.jpg" class=""></img>
-
+      <a href="./Product_Page/index.html" class="catalog_btn"> Catalog</a>
     </div>
-    <div class="halfWidth single">
-      <img src="./Homepage/HomeImages/paymentGrid2.jpg">
-    </div>
-  </div>
-  <div class="about-us">
-    <div class="heading">
-      <h2>Delivery and Payment</h2>
-    </div>
-<p>We package our plants securely yet sustainably by reusing boxes, paper (newspapers), etc. Delivery is carried out to all cities of Ukraine, except for the occupied ones. Pickup is possible in Kyiv.
 
-  We have full & partial prepayment by card and cash on delivery to make you feel completely secure.</p>
-  </div>
-</section>
-<section class="section3">
-  <div class="flx-jC-aC section3Head">
-    <div class="heading">
-      <h2>Find Us On Instagram </h2>
-    </div>
-      <button class="more">More Details</button>
-   
-  </div>
-  <div class="categories-list">
-  <div class="cat-card">
-    <div class="cat-image-div">
-      <img class="cat-img"src="./Homepage/HomeImages/catImg0.jpg">
-  </div>
- 
-  </div>
-  <div class="cat-card">
-    <div class="cat-image-div">
-      <img class="cat-img"src="./Homepage/HomeImages/catImg1.jpg">
-  </div>
- 
-  </div>
-  <div class="cat-card ">
-    <div class="cat-image-div">
-      <img class="cat-img"src="./Homepage/HomeImages/catImg2.jpg">
-      
-
-  </div>
-  
-  </div>
-  <div class="cat-card ">
-    <div class="cat-image-div">
-      <img class="cat-img" src="./Homepage/HomeImages/catImg3.jpg">
-  </div>
- 
-  </div>
-  </div>
- 
-  </div>
-
-</section>
-<section class="footer">
-  <div class="grid-container">
-    <div class="grid-item">
-      <h4 class="logo">Green Paradise</h4>
-      <img src="../footer/instagram.png" class="insta" />
-      <img src="../footer/send.png" class="message" />
-      <p>email:greenerparadise@gmail.com</p>
-    </div>
-    <div class="grid-item linksDiv">
+    <div class="third_tile">
       <div>
-        <h4>Catalog</h4>
-        <p>Sale</p>
-        <p>Houseplants</p>
-        <p>Houseplants set</p>
-        <p>Flowerpots</p>
-        <p>Soil and Fertilizers</p>
+        <div>
+          <img src="./Images/home_page_images/tile3 (1).webp" alt="" />
+        </div>
+        <div>
+          <p>Houseplants</p>
+          <div>
+            <img src="./Images/home_page_images/arrow-right.svg" alt="" />
+          </div>
+        </div>
       </div>
       <div>
-        <h4>Information</h4>
-        <p>Plant Care</p>
-        <p>Payment & Delivery</p>
-        <p>Privacy Policy</p>
+        <div>
+          <img src="./Images/home_page_images/tile3 (3).jpg" alt="" />
+        </div>
+        <div>
+          <p>Houseplants sets</p>
+          <div>
+            <img src="./Images/home_page_images/arrow-right.svg" alt="" />
+          </div>
+        </div>
       </div>
       <div>
-        <h4>About us</h4>
-        <p>Our Story</p>
-        <p>Our Parteners</p>
-        <p>Our Workprocess</p>
-        <p>Contacts</p>
+        <div>
+          <img src="./Images/home_page_images/tile3 (2).jpg" alt="" />
+        </div>
+        <div>
+          <p>Flowerpot</p>
+          <div>
+            <img src="./Images/home_page_images/arrow-right.svg" alt="" />
+          </div>
+        </div>
+      </div>
+      <div>
+        <div>
+          <img src="./Images/home_page_images/tile3 (4).jpg" alt="" />
+        </div>
+        <div>
+          <p>Soil and fertilizer</p>
+          <div>
+            <img src="./Images/home_page_images/arrow-right.svg" alt="" />
+          </div>
+        </div>
       </div>
     </div>
-    <div class="grid-item">
-      <button class="topBtn">^</button>
+
+    <div id="forth_tile">
+      <div>
+        <div>
+          <div>
+            <img src="./Images/home_page_images/firstcrousal1 (1).jpg" alt="" />
+          </div>
+          <div>
+            <img src="./Images/home_page_images/firstcrousal1 (2).jpg" alt="" />
+          </div>
+        </div>
+        <div id="background_image">
+          <!-- <div id="background_image"> -->
+          <!-- <img src="./Images/home_page_images/firstcrousal1 (3).jpg" alt="" /> -->
+          <!-- </div> -->
+        </div>
+      </div>
+      <div>
+        <h1 class="heading_green">Delivery & payment</h1>
+        <div id="forth_tile_bottom">
+          <img src="./Images/home_page_images/bottom1effect.png" alt="none" />
+        </div>
+        <p>
+          We package our plants securely yet sustainably by reusing boxes. paper
+          (newspapers). etc. Delivery is carried out to all cities of Ukraine.
+          except for tho occupied ones. Pickup is possible in Kyiv. Wo havo tull
+          & partial propaymont by card and cash on delivery to make you feel
+          completely secure. We have many testimonials from new and regular
+          customers.
+        </p>
+        <a href="./Product_Page/index.html" class="catalog_btn"> Catalog</a>
+      </div>
     </div>
-  </div>
-</section>
+
+    <div class="catogary_section">
+      <div>
+        <div class="heading_green">Find us on instagram</div>
+        <div id="last_bottom">
+          <img src="./Images/home_page_images/bottom1effect.png" alt="bottom" />
+        </div>
+      </div>
+      <a href="#" class="more_details">More Details</a>
+    </div>
+
+    <div class="last_tile">
+      <div><img src="./Images/home_page_images/follow (1).webp" alt="a" /></div>
+      <div><img src="./Images/home_page_images/follow (2).webp" alt="a" /></div>
+      <div><img src="./Images/home_page_images/follow (3).webp" alt="a" /></div>
+    </div>
+    <div id="footer"></div>
+    <!-- <img src="/Product_Page/Product_Detail_Page.html" alt="" /> -->
   </body>
-  <script src="./Homepage/Home.js" type="module"></script>
- 
+  <script type="module" src="./Scripts/home_page.js"></script>
 </html>

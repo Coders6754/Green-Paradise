@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CheckOut</title>
+    <link rel="stylesheet" href="./Styles/checkout.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+<link rel="shortcut icon" href="/Images/favicons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./Product_Page/components/footer/footer.css" />
+    <link rel="stylesheet" href="./Styles/login.css" />
+    <link rel="stylesheet" href="./Styles/navbar.css" />
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  </head>
+  <body>
+    <!-- <img src="" alt=""> -->
+    <!-- Navbar for laptop -->
+    <nav id="navbar_bigscreen_container"></nav>
+
+    <!-- navbar for mobile -->
+    <nav id="navbar_smallscreen_container"></nav>
+
+    <!-- popup login -->
+    <div id="popup_login"></div>
+
+    <!-- pop up sign up -->
+    <div id="popup_signup"></div>
+
+    <div id="kkcontainer">
+      <div class="kkleft">
+        <div class="kkleftUp">
+          <h1>Check out</h1>
+          <img
+            class="kkcontImg"
+            src="./Images/checkout.png"
+            alt=""
+          />
+        </div>
+      
+
+        <div id="kkpersonalInfoCont">
+          <h3>Personal Info</h3>
+          <div class="kkinputfields">
+            <div class="kkinputname">
+              <input type="text" placeholder="Firstname" required />
+              <input type="text" placeholder="Lastname" required />
+            </div>
+            <div class="kkdetails">
+              <input type="number" placeholder="Number" required />
+              <input type="text" placeholder="email" id="email" />
+            </div>
+          </div>
+
+          <div class="checkbox">
+            <input type="checkbox" id="input_checkbox" title="a" />
+            <div>You can not call me to confirm your order</div>
+          </div>
+          
+          <div>
+            <button id="kkcont">Continue</button>
+          </div>
+        </div>
+
+        <div id="kkdelivery">
+          <h3>Delivery Address</h3>
+          <input type="text" id="country" placeholder="Country" required/>
+          <select id="indian-states" title="a">
+            <option value="">Select State</option>
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+            <option value="Assam">Assam</option>
+            <option value="Bihar">Bihar</option>
+            <option value="Chhattisgarh">Chhattisgarh</option>
+            <option value="Goa">Goa</option>
+            <option value="Gujarat">Gujarat</option>
+            <option value="Haryana">Haryana</option>
+            <option value="Himachal Pradesh">Himachal Pradesh</option>
+            <option value="Jharkhand">Jharkhand</option>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Kerala">Kerala</option>
+            <option value="Madhya Pradesh">Madhya Pradesh</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Manipur">Manipur</option>
+            <option value="Meghalaya">Meghalaya</option>
+            <option value="Mizoram">Mizoram</option>
+            <option value="Nagaland">Nagaland</option>
+            <option value="Odisha">Odisha</option>
+            <option value="Punjab">Punjab</option>
+            <option value="Rajasthan">Rajasthan</option>
+            <option value="Sikkim">Sikkim</option>
+            <option value="Tamil Nadu">Tamil Nadu</option>
+            <option value="Telangana">Telangana</option>
+            <option value="Tripura">Tripura</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+            <option value="Uttarakhand">Uttarakhand</option>
+            <option value="West Bengal">West Bengal</option>
+          </select>
+
+          <div class="kkcity">
+            <input type="text" id="city" placeholder="City" required/>
+            <input type="number" id="pin" placeholder="PIN" required/>
+          </div>
+
+          <div class="kkbuttons">
+            <button id="kkbackbtn" type="submit">Go Back</button>
+            <button id="kkpaybtn" type="submit">Proceed to Pay</button>
+          </div>
+        </div>
+
+        <!-- <div class="kkpay">
+        <button id="kkpaybtn">Proceed to Pay</button>
+      </div> -->
+      </div>
+
+      <div class="kkright">
+        <div class="kkorders">
+          <h1>Your Orders</h1>
+          <img
+            class="kkcontImg2"
+            src="./Images/checkout.png"
+            alt=""
+          />
+        </div>
+
+        <div id="kkrightcontent">
+          <!-- <div id="itemImg"></div> -->
+          <div id="itemDetails">
+            <!-- <h5 id="itemName"></h5>
+            <p id="itemPrice"></p> -->
+          </div>
+        </div>
+        <div class="itemPricing">
+          <div id="itemPricingDiv">
+            <p>Sale</p>
+            <p>Delivery</p>
+            <h4>Total</h4>
+          </div>
+
+          <div>
+            <p>Rs. <span id="salesPrice">253</span></p>
+            <p>Rs. <span id="deliveryCharge">250</span></p>
+            <h4 id="totalAmt"></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <img src="" alt=""> -->
+    <!-- <img src="./images/5-kg-cow-manure.webp" alt=""> -->
+    <div id="footer"></div>
+  </body>
+  <script type="module" src="./Scripts/checkout.js"></script>
+</html>

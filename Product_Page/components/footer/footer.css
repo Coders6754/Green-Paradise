@@ -1,0 +1,110 @@
+@font-face {
+  font-family: "ClashDisplay SemiBold" !important;
+  src: url("./fonts/ClashDisplay-Semibold.otf") format("opentype") !important;
+}
+@font-face {
+  font-family: "ClashDisplay Regular" !important;
+  src: url("./fonts/ClashDisplay-Regular.otf") format("opentype") !important;
+}
+#footer_col1 {
+  display: flex !important;
+}
+
+.footer {
+  margin: auto;
+  padding: 30px 0 !important;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 0.3fr;
+  gap: 25px;
+}
+.footer > * {
+  margin: 0 auto;
+}
+.footer_heading {
+  font-family: "ClashDisplay SemiBold", sans-serif !important;
+}
+.green_footer_heading {
+  color: #43680b !important;
+  padding-bottom: 1px !important;
+}
+.foot_links {
+  color: #4f4e4c !important;
+  font-family: "ClashDisplay Regular", sans-serif !important;
+  font-size: 14px !important;
+  text-decoration: none !important;
+}
+.footer_col {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+}
+
+#scroll_2_top {
+  background-color: #486d00 !important;
+  color: white !important;
+  padding: 10px !important;
+  width: 75px !important;
+  height: 75px !important;
+  display: flex !important;
+  border-radius: 100% !important;
+  justify-content: center !important;
+  align-items: center !important;
+  border: none !important;
+}
+#scroll_2_top:hover {
+  background-color: rgb(94, 145, 165) !important;
+}
+
+#scroll_2_top svg {
+  max-height: 66% !important;
+  max-width: 66% !important;
+  border-radius: 100% !important;
+}
+#col1_buttons {
+  display: flex !important;
+  padding-bottom: 10px !important;
+  width: 33% !important;
+  height: 25px !important;
+  align-items: center !important;
+}
+
+@media screen and (max-width: 1080px) {
+  .footer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
+  }
+  /* .footer > * {
+    margin: auto;
+  } */
+  #scroll_2_top {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .footer > div {
+    margin-left: 27%;
+  }
+}
+@media screen and (max-width: 720px) {
+  #footer .footer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
+    width: 95%;
+  }
+  #col1_buttons + .foot_links span {
+    overflow-wrap: anywhere;
+    /* border: 1px solid red; */
+  }
+  .footer > div {
+    margin-left: 25%;
+  }
+
+  #scroll_2_top {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  /* .footer * {
+    margin: auto;
+  } */
+}

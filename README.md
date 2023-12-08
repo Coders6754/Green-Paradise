@@ -20,7 +20,7 @@ The project utilizes a range of technologies including HTML, CSS, and JavaScript
 
 ## Deployed Link
 
-https://www.google.com/
+enchanting-klepon-de18e6.netlify.app
 
 ## Tech Stack
 
@@ -84,17 +84,17 @@ https://www.google.com/
 ![Payment Success](https://github.com/Coders6754/devilish-drop-2377/blob/main/Images/readme_Images/Success.png)
 
 # Contributors
-
-1. **Narayan Das**
-
-   - GitHub: [@noobnarayan](https://github.com/noobnarayan)
-   - LinkedIn: [@noobnarayan](https://www.linkedin.com/in/noobnarayan)
-   - Portfolio: [noobnarayan.in](https://noobnarayan.in/)
-
-2. **Anjali Sinha**
+1. **Anjali Sinha**
 
    - GitHub: [@Coders6754](https://github.com/Coders6754)
    - LinkedIn: [Anjali Sinha](https://www.linkedin.com/in/anjali-sinha-60528b22b/)
+
+
+2. **Narayan Das**
+
+   - GitHub: [@noobnarayan](https://github.com/noobnarayan)
+   - LinkedIn: [@noobnarayan](https://www.linkedin.com/in/noobnarayan)
+  
 
 3. **Rishita Mukherjee**
 

@@ -1,0 +1,437 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* ------------------for large screens----------------- */
+#navbar_bigscreen_container {
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  z-index: 10;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 2px 0px;
+}
+
+#navbar_bigscreen {
+  display: flex;
+  max-width: 1200px;
+  margin: auto;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* logo part */
+#first_bigscreen a {
+  text-decoration: none;
+  color: #486e00;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+/* middle part of the navbar */
+#middle_bigscreen {
+  width: 39%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#middle_bigscreen a {
+  text-decoration: none;
+  color: #767774;
+}
+#middle_bigscreen a:hover {
+  color: #486e00;
+}
+
+/* last part of the navbar */
+.icon_bigscreen img {
+  width: 1.4rem;
+}
+
+.icon_bigscreen img:hover {
+  cursor: pointer;
+}
+#last_bigscreen {
+  width: 28%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#search_bigscreen {
+  border: 1px solid #949393;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 4px 10px;
+  padding-top: 5px;
+  width: 60%;
+}
+#search_bigscreen input {
+  outline: none;
+  border: none;
+  padding: 0;
+  padding-bottom: 5px;
+  width: 90%;
+}
+
+#login1_bigscreen {
+  display: none;
+}
+#login1_bigscreen:hover {
+  cursor: pointer;
+  color: #679c05;
+}
+
+#login2_bigscreen {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  display: none;
+}
+
+#login2_bigscreen div:nth-child(2) img {
+  width: 1.1rem;
+}
+
+#cart_bigscreen {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#cart_bigscreen div:nth-child(2) {
+  background-color: #486e00;
+  color: white;
+  width: 1.2rem;
+  height: 1.2rem;
+  display: flex;
+  font-size: 0.75rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 50%;
+  margin-top: -12px;
+  margin-left: -12px;
+}
+
+/* ------------------- drop downs of big screen ------------------*/
+#dropdowns_bigscreen {
+  position: fixed;
+  width: 100%;
+  padding: 0px;
+  z-index: 100;
+}
+#dropdowns_bigscreen > div {
+  max-width: 1200px;
+  margin: auto;
+}
+
+#search_bigscreen_dropdown {
+  display: none;
+  background-color: #fff;
+  max-height: 200px;
+  margin-left: 72%;
+  width: 18.7%;
+  z-index: 100;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 15px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+#search_bigscreen_dropdown div {
+  padding: 8px;
+}
+#search_bigscreen_dropdown div:hover {
+  background-color: #f3f0f0;
+  cursor: pointer;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+#login2_bigscreen_dropdown {
+  margin-left: 87.5%;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  width: 11%;
+  text-align: center;
+  padding: 4px;
+  font-size: 0.9rem;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  display: none;
+}
+
+#login2_bigscreen_dropdown > div {
+  padding: 4px 2px;
+  border-bottom: 1px solid rgb(236, 236, 236);
+}
+
+.dropdowns_user_bigscreen:hover {
+  background-color: #f3f0f0;
+  cursor: pointer;
+}
+
+/* ----------------- for small screens ------------------*/
+#navbar_smallscreen_container {
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  left: 0;
+}
+
+#navbar_smallscreen {
+  background-color: rgb(255, 255, 255);
+  padding: 17px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo for moblie screen*/
+#first_smallscreen {
+  text-wrap: nowrap;
+}
+
+#first_smallscreen a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #486e00;
+}
+
+/* second part */
+#second_smallscreen {
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+  padding-right: 12px;
+  align-items: center;
+  width: 85%;
+}
+#second_smallscreen div:hover {
+  cursor: pointer;
+}
+
+#login1_smallscreen {
+  display: none;
+}
+#login2_smallscreen {
+  display: flex;
+  display: none;
+}
+
+#cart_smallscreen {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#cart_smallscreen div:nth-child(2) {
+  background-color: #486e00;
+  color: white;
+  width: 1.1rem;
+  height: 1.1rem;
+  text-align: center;
+  border-radius: 50%;
+  margin-top: -18px;
+  margin-left: -12px;
+  display: flex;
+  font-size: 0.75rem;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ---------------------  drop downs small Screen ---------------------*/
+#dropdowns_small_screen {
+  display: none;
+}
+
+#dropdowns_small_screen > div:nth-child(1) {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#dropdowns_small_screen input {
+  margin: 10px;
+  padding: 10px;
+  width: 90%;
+  border: 1px solid #486e00;
+  border-radius: 10px;
+  outline: none;
+}
+
+#search_result_smallscreen {
+  width: 90%;
+  background-color: white;
+  margin: auto;
+  padding: 0px 10px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  display: block;
+  display: none;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 10px 15px;
+}
+
+#search_result_smallscreen > div {
+  width: 90%;
+  margin: auto;
+  padding: 8px 0px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+#search_result_smallscreen > div:hover {
+  cursor: pointer;
+  color: #486e00;
+}
+
+/* ---------------- humburger icon menu --------------- */
+
+#humburger_icon_menu {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+  height: 100vh;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+#humburger_icon_menu > div {
+  background-color: white;
+  width: 40%;
+  height: calc(100vh - 57px);
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#humburger_icon_menu > div::-webkit-scrollbar {
+  display: none;
+}
+#humburger_icon_menu > div > div:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  font-size: larger;
+  justify-content: space-evenly;
+  height: 10%;
+  /* margin-top: -10%; */
+}
+#humburger_icon_menu > div > div:nth-child(1) a:nth-child(1) {
+  padding-top: 15px;
+  color: #486e00;
+  font-size: larger;
+  font-weight: 500;
+}
+#humburger_icon_menu > div > div:nth-child(1) a:nth-child(2) {
+  color: #7b7c78;
+  font-size: large;
+  font-weight: 500;
+}
+
+#humburger_icon_menu > div > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f4f4;
+  padding: 15px;
+}
+
+#humburger_icon_menu h4 {
+  font-size: 1.4rem;
+  margin: 10px 0px;
+  color: #486e00;
+}
+#humburger_icon_menu > div > div:nth-child(3) {
+  /* padding-left: 5px; */
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f4f4;
+  padding: 15px;
+}
+#humburger_icon_menu > div > div:nth-child(4) {
+  /* padding-left: 5px; */
+  display: flex;
+
+  flex-direction: column;
+  background-color: #f5f4f4;
+  display: none;
+  padding: 15px;
+  font-size: larger;
+  font-weight: 500;
+}
+#humburger_icon_menu > div > div:nth-child(4) a {
+  color: #486e00;
+}
+#humburger_icon_menu a {
+  text-decoration: none;
+  /* padding: 5px; */
+  padding: 5px 0;
+  color: #7b7c78;
+}
+
+#humburger_icon_menu a:hover {
+  color: #a8a6a6;
+}
+
+@media screen and (width>750px) {
+  #navbar_smallscreen_container {
+    display: none;
+  }
+}
+@media screen and (width<900px) {
+  #first_bigscreen a {
+    font-size: 1.4rem;
+  }
+  #middle_bigscreen {
+    width: 45%;
+  }
+  #middle_bigscreen a {
+    font-size: 0.9rem;
+  }
+  #search_bigscreen {
+    width: 50%;
+  }
+  #login2_bigscreen div:nth-child(2) img {
+    width: 1rem;
+  }
+  .icon_bigscreen img {
+    width: 1.2rem;
+  }
+  #search_bigscreen_dropdown {
+    font-size: 0.9rem;
+    width: 16.5%;
+  }
+  #login1_bigscreen {
+    font-size: 0.9rem;
+  }
+  #login2_bigscreen_dropdown {
+    margin-left: 85%;
+  }
+}
+
+@media screen and (width<=750px) {
+  #navbar_bigscreen_container {
+    display: none;
+  }
+}
+@media screen and (width<350px) {
+  #first_smallscreen a {
+    font-size: 1.1rem;
+  }
+  .icon_bigscreen img {
+    width: 1rem;
+  }
+  #cart_smallscreen div:nth-child(2) {
+    width: 1.1rem;
+    height: 1.1rem;
+    font-size: 0.9rem;
+  }
+  #humburger_icon_menu h4 {
+    font-size: 1.2rem;
+  }
+}

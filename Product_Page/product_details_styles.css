@@ -71,14 +71,12 @@ color: #486e00;
 }
 #button_heart{
     display: flex;
-    gap: 10px;
+    gap: 20px;
     align-items: center;  
 }
-#care_text{
-    margin-bottom: 30px;
+footer * {
+    font-family: "ClashDisplay Regular", sans-serif;
 }
-
-
 @media screen and (max-width:1000px) {
     #content {
         max-width: 85%;
