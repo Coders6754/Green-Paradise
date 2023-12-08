@@ -20,7 +20,7 @@ The project utilizes a range of technologies including HTML, CSS, and JavaScript
 
 ## Deployed Link
 
-enchanting-klepon-de18e6.netlify.app
+https://enchanting-klepon-de18e6.netlify.app/
 
 ## Tech Stack
 
