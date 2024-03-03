@@ -64,27 +64,39 @@ https://enchanting-klepon-de18e6.netlify.app/
 ## Screenshots
 
 **Login Page**
-![Login Page](![image](https://github.com/Coders6754/Green-Paradise/assets/128929403/727d383f-2de2-4081-aadd-d594750adcad)
+![image](https://github.com/Coders6754/Green-Paradise/assets/128929403/727d383f-2de2-4081-aadd-d594750adcad)
 
 **Sign Up Page**
-![Sign Up Page](![image](https://github.com/Coders6754/Green-Paradise/assets/128929403/13e61eec-aac2-48d1-9e64-458a27219e7f)
+![image](https://github.com/Coders6754/Green-Paradise/assets/128929403/13e61eec-aac2-48d1-9e64-458a27219e7f)
 
 **Cart Page**
-![Cart Page](![image](https://github.com/Coders6754/Green-Paradise/assets/128929403/4dc0c303-c502-48b3-aa9b-4c4d00862f8a)
+![image](https://github.com/Coders6754/Green-Paradise/assets/128929403/4dc0c303-c502-48b3-aa9b-4c4d00862f8a)
 
 
-**Checkout**
-![Checkout Page User Details](![image](https://github.com/Coders6754/Green-Paradise/assets/128929403/fcff9727-2d80-4b7b-8e37-8765369fc1b3)
+## Checkout
 
-![Checkout Page Address](![image](https://github.com/Coders6754/Green-Paradise/assets/128929403/37d147ce-6856-4cd8-9c55-9aecb1b82df3)
+**Checkout Page User Details**
+![image](https://github.com/Coders6754/Green-Paradise/assets/128929403/fcff9727-2d80-4b7b-8e37-8765369fc1b3)
+
+**Checkout Page Address**
+
+![image](https://github.com/Coders6754/Green-Paradise/assets/128929403/37d147ce-6856-4cd8-9c55-9aecb1b82df3)
+
+**Checkout Payment**
 
 ![Checkout Payment](https://github.com/Coders6754/devilish-drop-2377/blob/main/Images/readme_Images/Checkout%20payment%20selection.png)
 
-![Checkout Payment gateway](![image](https://github.com/Coders6754/Green-Paradise/assets/128929403/10a87761-638c-4fe2-9062-39311604e11a)
+**Checkout Payment gateway**
 
-![Payment Success](![image](https://github.com/Coders6754/Green-Paradise/assets/128929403/31924710-541d-4137-99ae-78a769f212f8)
+![image](https://github.com/Coders6754/Green-Paradise/assets/128929403/10a87761-638c-4fe2-9062-39311604e11a)
 
-![ThankYou Page](![image](![image](https://github.com/Coders6754/Green-Paradise/assets/128929403/d69a40de-64b2-42d5-983c-7c0d2e91378f)
+**Payment Success**
+
+![image](https://github.com/Coders6754/Green-Paradise/assets/128929403/31924710-541d-4137-99ae-78a769f212f8)
+
+**ThankYou Page**
+
+(![image](![image](https://github.com/Coders6754/Green-Paradise/assets/128929403/d69a40de-64b2-42d5-983c-7c0d2e91378f)
 )
 
 # Contributors
