@@ -65,15 +65,13 @@ https://enchanting-klepon-de18e6.netlify.app/
 
 **Login Page**
 ![Login Page](![image](https://github.com/Coders6754/Green-Paradise/assets/128929403/727d383f-2de2-4081-aadd-d594750adcad)
-)
 
 **Sign Up Page**
 ![Sign Up Page](![image](https://github.com/Coders6754/Green-Paradise/assets/128929403/13e61eec-aac2-48d1-9e64-458a27219e7f)
-)
 
 **Cart Page**
 ![Cart Page](![image](https://github.com/Coders6754/Green-Paradise/assets/128929403/4dc0c303-c502-48b3-aa9b-4c4d00862f8a)
-)
+
 
 **Checkout**
 ![Checkout Page User Details](![image](https://github.com/Coders6754/Green-Paradise/assets/128929403/fcff9727-2d80-4b7b-8e37-8765369fc1b3)
