@@ -82,9 +82,6 @@ https://enchanting-klepon-de18e6.netlify.app/
 
 ![image](https://github.com/Coders6754/Green-Paradise/assets/128929403/37d147ce-6856-4cd8-9c55-9aecb1b82df3)
 
-**Checkout Payment**
-
-![Checkout Payment](https://github.com/Coders6754/devilish-drop-2377/blob/main/Images/readme_Images/Checkout%20payment%20selection.png)
 
 **Checkout Payment gateway**
 
@@ -96,8 +93,7 @@ https://enchanting-klepon-de18e6.netlify.app/
 
 **ThankYou Page**
 
-(![image](![image](https://github.com/Coders6754/Green-Paradise/assets/128929403/d69a40de-64b2-42d5-983c-7c0d2e91378f)
-)
+![image](![image](https://github.com/Coders6754/Green-Paradise/assets/128929403/d69a40de-64b2-42d5-983c-7c0d2e91378f)
 
 # Contributors
 1. **Anjali Sinha**
