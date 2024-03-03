@@ -64,24 +64,30 @@ https://enchanting-klepon-de18e6.netlify.app/
 ## Screenshots
 
 **Login Page**
-![Login Page](https://github.com/Coders6754/devilish-drop-2377/blob/main/Images/readme_Images/Login_Page.png)
+![Login Page](![image](https://github.com/Coders6754/Green-Paradise/assets/128929403/727d383f-2de2-4081-aadd-d594750adcad)
+)
 
 **Sign Up Page**
-![Sign Up Page](https://github.com/Coders6754/devilish-drop-2377/blob/main/Images/readme_Images/Sign_up_page.png)
+![Sign Up Page](![image](https://github.com/Coders6754/Green-Paradise/assets/128929403/13e61eec-aac2-48d1-9e64-458a27219e7f)
+)
 
 **Cart Page**
-![Cart Page](https://github.com/Coders6754/devilish-drop-2377/blob/main/Images/readme_Images/Cart_page.png)
+![Cart Page](![image](https://github.com/Coders6754/Green-Paradise/assets/128929403/4dc0c303-c502-48b3-aa9b-4c4d00862f8a)
+)
 
 **Checkout**
-![Checkout Page User Details](https://github.com/Coders6754/devilish-drop-2377/blob/main/Images/readme_Images/Checkout%20User%20Details.png)
+![Checkout Page User Details](![image](https://github.com/Coders6754/Green-Paradise/assets/128929403/fcff9727-2d80-4b7b-8e37-8765369fc1b3)
 
-![Checkout Page Address](https://github.com/Coders6754/devilish-drop-2377/blob/main/Images/readme_Images/Checkout%20User%20Address.png)
+![Checkout Page Address](![image](https://github.com/Coders6754/Green-Paradise/assets/128929403/37d147ce-6856-4cd8-9c55-9aecb1b82df3)
 
 ![Checkout Payment](https://github.com/Coders6754/devilish-drop-2377/blob/main/Images/readme_Images/Checkout%20payment%20selection.png)
 
-![Checkout Payment gateway](https://github.com/Coders6754/devilish-drop-2377/blob/main/Images/readme_Images/Payment%20Gateway.png)
+![Checkout Payment gateway](![image](https://github.com/Coders6754/Green-Paradise/assets/128929403/10a87761-638c-4fe2-9062-39311604e11a)
 
-![Payment Success](https://github.com/Coders6754/devilish-drop-2377/blob/main/Images/readme_Images/Success.png)
+![Payment Success](![image](https://github.com/Coders6754/Green-Paradise/assets/128929403/31924710-541d-4137-99ae-78a769f212f8)
+
+![ThankYou Page](![image](![image](https://github.com/Coders6754/Green-Paradise/assets/128929403/d69a40de-64b2-42d5-983c-7c0d2e91378f)
+)
 
 # Contributors
 1. **Anjali Sinha**
